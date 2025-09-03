@@ -3,14 +3,14 @@ package org.sparadrap.model;
 public abstract class AbstractEntity {
     private String name;
     private String address;
-    private int postalCode;
+    private String postalCode;
     private String city;
     private String email;
-    private long telephone;
+    private String telephone;
 
     // ---------- constructor -------
 
-    public  AbstractEntity(String name, String address, int postalCode, String city, String email, long telephone) {
+    public  AbstractEntity(String name, String address, String postalCode, String city, String email, String telephone) {
         setName(name);
         setAddress(address);
         setPostalCode(postalCode);
@@ -35,10 +35,10 @@ public abstract class AbstractEntity {
         this.address = address;
     }
 
-    public int getPostalCode() {
+    public String getPostalCode() {
         return this.postalCode;
     }
-    public void setPostalCode(int postalCode) {
+    public void setPostalCode(String postalCode) {
         this.postalCode = postalCode;
     }
 
@@ -56,10 +56,10 @@ public abstract class AbstractEntity {
         this.email = email;
     }
 
-    public long getTelephone() {
+    public String getTelephone() {
         return this.telephone;
     }
-    public void setTelephone(long telephone) {
+    public void setTelephone(String telephone) {
         this.telephone = telephone;
     }
 
@@ -67,9 +67,10 @@ public abstract class AbstractEntity {
     protected void displayCommonInfo() {
         System.out.printf("%-25s: %s%n", "Name", name);
         System.out.printf("%-25s: %s%n", "Address", address);
-        System.out.printf("%-25s: %d%n", "Postal Code", postalCode);
+        System.out.printf("%-25s: %s%n", "Postal Code", postalCode);
         System.out.printf("%-25s: %s%n", "City", city);
         System.out.printf("%-25s: %s%n", "Email", email);
-        System.out.printf("%-25s: %d%n", "Telephone", telephone);
+        System.out.printf("%-25s: %s%n", "Telephone", telephone);
     }
+
 }

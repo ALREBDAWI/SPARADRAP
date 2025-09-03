@@ -2,11 +2,11 @@ package org.sparadrap.model;
 
 public class Doctor extends AbstractEntity {
     private  String lastName;
-    private  long approvalNumber ;
+    private  String approvalNumber ;
 
     // ---------- constructor ---------
 
-    public Doctor(String name, String address, int postalCode, String city, String email, long telephone, String lastName, long approvalNumber) {
+    public Doctor(String name, String address, String postalCode, String city, String email, String telephone, String lastName, String approvalNumber) {
         super(name, address, postalCode, city, email, telephone);
         setLastName(lastName);
         setApprovalNumber(approvalNumber);
@@ -21,22 +21,40 @@ public class Doctor extends AbstractEntity {
         this.lastName = lastName;
     }
 
-    public long getApprovalNumber() {
+    public String getFullName(){
+        return this.getName()+" "+this.getLastName();
+    }
+
+    public String getApprovalNumber() {
         return this.approvalNumber;
     }
-    public void setApprovalNumber(long approvalNumber) {
+    public void setApprovalNumber(String approvalNumber) {
         this.approvalNumber = approvalNumber;
     }
 
     // ---------- print info ---------------
 
+
     public void displayInfo(){
         System.out.println("---- Doctor Information ----");
         System.out.printf("%-25s: %s%n", "Last Name", lastName);
         displayCommonInfo();
-        System.out.printf("%-25s: %d%n", "Approval Number", approvalNumber);
+        System.out.printf("%-25s: %s%n", "Approval Number", approvalNumber);
         System.out.println("----------------------------");
     }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("---- Doctor Information ----\n");
+        sb.append(String.format("%-25s: %s%n", "Name", getFullName()));
+        sb.append(String.format("%-25s: %s%n", "City", getCity()));
+        sb.append(String.format("%-25s: %s%n", "Phon Number", getTelephone()));
+        sb.append(String.format("%-25s: %s%n", "Approval Number", getApprovalNumber() ));
+        sb.append("--------------------------------\n");
+        return sb.toString();
+    }
+
 
 }
 

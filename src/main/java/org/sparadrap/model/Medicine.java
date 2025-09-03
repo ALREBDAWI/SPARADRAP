@@ -4,7 +4,7 @@ import java.time.LocalDate;
 
 public class Medicine {
     private String medicineName;
-    private String category;
+    private MedicineCategory category;
     private int price;
     private LocalDate startDate;
     private int quantity;
@@ -12,7 +12,7 @@ public class Medicine {
 
     // ----------------- constructor -----------------
 
-    public Medicine(String medicineName, String category, int price, LocalDate startDate, int quantity, boolean isWithPrescription) {
+    public Medicine(String medicineName, MedicineCategory category, int price, LocalDate startDate, int quantity, boolean isWithPrescription) {
         setMedicineName(medicineName);
         setCategory(category);
         setPrice(price);
@@ -30,10 +30,10 @@ public class Medicine {
         this.medicineName = medicineName;
     }
 
-    public String getCategory() {
+    public MedicineCategory getCategory() {
         return this.category;
     }
-    public void setCategory(String category) {
+    public void setCategory(MedicineCategory category) {
         this.category = category;
     }
 
@@ -75,6 +75,11 @@ public class Medicine {
         System.out.printf("%-25s: %s%n", "Requires Prescription", isWithPrescription ? "Yes" : "No");
         System.out.println("--------------------------------");
 
+    }
+
+    @Override
+    public String toString() {
+       return String.format(medicineName);
     }
 
 }

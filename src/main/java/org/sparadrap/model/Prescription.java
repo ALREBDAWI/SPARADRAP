@@ -17,7 +17,6 @@ public class Prescription {
         setTreatingDoctor(treatingDoctor);
         setPatient(patient);
         this.MedicineList = List.copyOf(MedicineList);
-
     }
 
     // --------- getter and setter --------
@@ -40,22 +39,31 @@ public class Prescription {
     public void setPatient(Patient patient) {
         this.patient = patient;
     }
-
     public List<Medicine> getMedicineList() {
         return this.MedicineList;
     }
 
 
+    // display info
 
     public void displayInfo() {
         System.out.println("---- Prescription Information ----");
-        System.out.printf("%-25s: %d%n", "Date", prescriptionDate);
-        System.out.printf("%-25s: %d%n", "Treating Doctor", treatingDoctor);
-        System.out.printf("%-25s: %s%n", "Patient", getPatient().getName() + " " + getPatient().getLastName());
-        System.out.printf("%-25s: %s%n", "Medicine List", getMedicineList().toString());
+        System.out.printf("%-25s: %s%n", "Date", prescriptionDate);
+        System.out.printf("%-25s: %s%n", "Treating Doctor", treatingDoctor.getName());
+        System.out.printf("%-25s: %s%n", "Patient", patient.getName());
+        System.out.printf("%-25s: %s%n", "Medicine List", getMedicineList());
         System.out.println("--------------------------------");
     }
 
-    public static void main(String[] args) {
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("---- Prescription Information ----\n");
+        sb.append(String.format("%-25s: %s%n", "Date", prescriptionDate));
+        sb.append(String.format("%-25s: %s%n", "Treating Doctor", treatingDoctor.getFullName()));
+        sb.append(String.format("%-25s: %s%n", "Patient", patient.getFullName()));
+        sb.append(String.format("%-25s: %s%n", "Medicine List", getMedicineList()));
+        sb.append("--------------------------------\n");
+        return sb.toString();
     }
 }
