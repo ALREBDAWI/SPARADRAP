@@ -25,18 +25,27 @@ public class Prescription {
         return this.prescriptionDate;
     }
     public void setPrescriptionDate(LocalDate prescriptionDate) {
+        if (prescriptionDate == null || prescriptionDate.isAfter(LocalDate.now())) {
+            throw  new IllegalArgumentException("Prescription Date Is Null Or Invalid!");
+        }
         this.prescriptionDate = prescriptionDate;
     }
     public Doctor getTreatingDoctor() {
         return this.treatingDoctor;
     }
     public void setTreatingDoctor(Doctor treatingDoctor) {
+        if (treatingDoctor == null) {
+            throw  new IllegalArgumentException("Treating Doctor Invalid!");
+        }
         this.treatingDoctor = treatingDoctor;
     }
     public Patient getPatient() {
         return this.patient;
     }
     public void setPatient(Patient patient) {
+        if (patient == null) {
+            throw  new IllegalArgumentException("Patient Invalid!");
+        }
         this.patient = patient;
     }
     public List<Medicine> getMedicineList() {

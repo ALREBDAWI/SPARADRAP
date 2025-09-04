@@ -18,14 +18,22 @@ public class Insurance extends AbstractEntity {
         return this.department;
     }
     public void setDepartment(String department) {
-        this.department = department;
+        String regex = "^(0[1-9]|[1-8][0-9]|9[0-5]|2A|2B)$";
+        if (department.matches(regex)) {
+            this.department = department;
+        }else{
+            throw  new IllegalArgumentException("Department is not valid");
+        }
     }
 
     public int getCoveragePercentage() {
         return this.coveragePercentage;
     }
     public void setCoveragePercentage(int coveragePercentage) {
-        this.coveragePercentage = coveragePercentage;
+        if (coveragePercentage < 0 || coveragePercentage > 100) {
+            throw new IllegalArgumentException("Coverage percentage must be between 0 and 100");
+        }
+            this.coveragePercentage = coveragePercentage;
     }
 
     // -------- display info -----------

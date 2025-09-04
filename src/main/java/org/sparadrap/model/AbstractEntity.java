@@ -25,42 +25,72 @@ public abstract class AbstractEntity {
         return this.name;
     }
     public void setName(String name) {
-        this.name = name;
+        String regex = "^\\p{L}+(?:[ '\\-]\\p{L}+)*$";
+        if (name.matches(regex)) {
+            this.name = name;
+        }else {
+            throw new IllegalArgumentException("Invalid name!");
+        }
     }
 
     public String getAddress() {
         return this.address;
     }
     public void setAddress(String address) {
-        this.address = address;
+        String regex = "^[0-9A-Za-z\\s.,'#-]+$";
+        if (address.matches(regex)) {
+            this.address = address;
+        }else{
+            throw new IllegalArgumentException("Invalid address!");
+        }
     }
 
     public String getPostalCode() {
         return this.postalCode;
     }
     public void setPostalCode(String postalCode) {
-        this.postalCode = postalCode;
+        String regex = "^[0-9\\p{L}\\s.,'#-]+$";
+        if (postalCode.matches(regex)) {
+            this.postalCode = postalCode;
+        }else{
+            throw new IllegalArgumentException("Invalid postal code!");
+        }
     }
 
     public String getCity() {
         return this.city;
     }
     public void setCity(String city) {
-        this.city = city;
+        String regex = "^\\p{L}+(?:[ '\\-]\\p{L}+)*$";
+        if(city.matches(regex)) {
+            this.city = city;
+        }else {
+            throw new IllegalArgumentException("Invalid city name!");
+        }
     }
 
     public String getEmail() {
         return this.email;
     }
     public void setEmail(String email) {
-        this.email = email;
+        String regex = "^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$";
+        if (email.matches(regex)) {
+            this.email = email;
+        }else{
+            throw new IllegalArgumentException("Invalid email!");
+        }
     }
 
     public String getTelephone() {
         return this.telephone;
     }
     public void setTelephone(String telephone) {
-        this.telephone = telephone;
+        String regex = "^\\+?[0-9\\s()-]{7,15}$";//general for all countries
+        if (telephone.matches(regex)) {
+            this.telephone = telephone;
+        }else{
+            throw new IllegalArgumentException("Invalid telephone number!");
+        }
     }
 
 

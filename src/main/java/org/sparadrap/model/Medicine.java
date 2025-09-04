@@ -5,14 +5,14 @@ import java.time.LocalDate;
 public class Medicine {
     private String medicineName;
     private MedicineCategory category;
-    private int price;
+    private double price;
     private LocalDate startDate;
     private int quantity;
     private boolean isWithPrescription;
 
     // ----------------- constructor -----------------
 
-    public Medicine(String medicineName, MedicineCategory category, int price, LocalDate startDate, int quantity, boolean isWithPrescription) {
+    public Medicine(String medicineName, MedicineCategory category, double price, LocalDate startDate, int quantity, boolean isWithPrescription) {
         setMedicineName(medicineName);
         setCategory(category);
         setPrice(price);
@@ -27,7 +27,12 @@ public class Medicine {
         return this.medicineName;
     }
     public void setMedicineName(String medicineName) {
-        this.medicineName = medicineName;
+        String regex = "^[\\p{L}0-9]+(?:[ '\\-_][\\p{L}0-9]+)*$";
+        if(medicineName.matches(regex)){
+            this.medicineName = medicineName;
+        }else{
+            throw new IllegalArgumentException("Invalid medicine name");
+        }
     }
 
     public MedicineCategory getCategory() {
@@ -37,10 +42,13 @@ public class Medicine {
         this.category = category;
     }
 
-    public int getPrice() {
+    public double getPrice() {
         return this.price;
     }
-    public void setPrice(int price) {
+    public void setPrice(double price) {
+        if(price < 0){
+            throw new IllegalArgumentException("Price cannot be negative");
+        }
         this.price = price;
     }
 
@@ -48,6 +56,9 @@ public class Medicine {
         return this.startDate;
     }
     public void setStartDate(LocalDate startDate) {
+        if(startDate.isAfter(LocalDate.now())){
+            throw new IllegalArgumentException("Start date cannot be after now");
+        }
         this.startDate = startDate;
     }
 
@@ -55,6 +66,9 @@ public class Medicine {
         return this.quantity;
     }
     public void setQuantity(int quantity) {
+        if(quantity < 0){
+            throw new IllegalArgumentException("Quantity cannot be negative");
+        }
         this.quantity = quantity;
     }
 
@@ -69,7 +83,7 @@ public class Medicine {
         System.out.println("---- Medicine Information ----");
         System.out.printf("%-25s: %s%n", "Medicine Name", medicineName);
         System.out.printf("%-25s: %s%n", "Category", category);
-        System.out.printf("%-25s: %d%n", "Price", price);
+        System.out.printf("%-25s: %f%n", "Price", price);
         System.out.printf("%-25s: %s%n", "Start Date", startDate);
         System.out.printf("%-25s: %d%n", "Quantity", quantity);
         System.out.printf("%-25s: %s%n", "Requires Prescription", isWithPrescription ? "Yes" : "No");

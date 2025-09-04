@@ -17,6 +17,13 @@ public class Purchase {
         setPurchaseDate(purchaseDate);
     }
 
+    public Purchase(boolean isWithPrescription, LocalDate purchaseDate) {
+        setIsWithPrescription(isWithPrescription);
+        setPurchaseDate(purchaseDate);
+    }
+
+
+
 
     // --------- getters and setters ----------
 
@@ -38,6 +45,9 @@ public class Purchase {
         return this.purchaseDate;
     }
     public void setPurchaseDate(LocalDate purchaseDate) {
+        if (purchaseDate == null || purchaseDate.isAfter(LocalDate.now())) {
+            throw  new IllegalArgumentException("Purchase date is null or after now");
+        }
         this.purchaseDate = purchaseDate;
     }
 

@@ -26,14 +26,24 @@ public class Patient extends AbstractEntity {
         return socialSecurityNumber;
     }
     public void setSocialSecurityNumber(String socialSecurityNumber) {
-        this.socialSecurityNumber = socialSecurityNumber;
+        String regex = "^\\d{13}(\\d{2})?$";
+        if (socialSecurityNumber.matches(regex)) {
+            this.socialSecurityNumber = socialSecurityNumber;
+        }else{
+            throw new IllegalArgumentException("Invalid Social Security Number");
+        }
     }
 
     public String getLastName() {
         return lastName;
     }
     public void setLastName(String lastName) {
-        this.lastName = lastName;
+        String regex = "^\\p{L}+(?:[ '\\-]\\p{L}+)*$";
+        if (lastName.matches(regex)) {
+            this.lastName = lastName;
+        }else{
+            throw new IllegalArgumentException("Invalid Last Name");
+        }
     }
 
     public String getFullName(){
@@ -44,6 +54,10 @@ public class Patient extends AbstractEntity {
         return dateOfBirth;
     }
     public void setDateOfBirth(LocalDate dateOfBirth) {
+        if(dateOfBirth == null || dateOfBirth.isAfter(LocalDate.now()))
+        {
+            throw new IllegalArgumentException("Invalid Date of Birth");
+        }
         this.dateOfBirth = dateOfBirth;
     }
 
@@ -51,6 +65,9 @@ public class Patient extends AbstractEntity {
         return treatingDoctor;
     }
     public void setTreatingDoctor(Doctor treatingDoctor) {
+        if(treatingDoctor == null){
+            throw new IllegalArgumentException("Invalid Treating Doctor");
+        }
         this.treatingDoctor = treatingDoctor;
     }
 
@@ -58,6 +75,9 @@ public class Patient extends AbstractEntity {
         return this.insurance;
     }
     public void setInsurance(Insurance insurance) {
+        if(insurance == null){
+            throw new IllegalArgumentException("Invalid Insurance");
+        }
         this.insurance = insurance;
     }
 

@@ -18,18 +18,28 @@ public class Doctor extends AbstractEntity {
         return this.lastName;
     }
     public void setLastName(String lastName) {
-        this.lastName = lastName;
+        String regex = "^\\p{L}+(?:[ '\\-]\\p{L}+)*$";
+        if (lastName.matches(regex)) {
+            this.lastName = lastName;
+        }else{
+            throw new IllegalArgumentException("Invalid last name");
+        }
     }
 
     public String getFullName(){
-        return this.getName()+" "+this.getLastName();
+        return this.getName() + " " + this.getLastName();
     }
 
     public String getApprovalNumber() {
         return this.approvalNumber;
     }
     public void setApprovalNumber(String approvalNumber) {
-        this.approvalNumber = approvalNumber;
+        String regex = "^[A-Za-z0-9_-]{5,15}$";
+        if (approvalNumber.matches(regex)) {
+            this.approvalNumber = approvalNumber;
+        }else{
+            throw new IllegalArgumentException("Invalid approval number");
+        }
     }
 
     // ---------- print info ---------------
