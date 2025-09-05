@@ -7,7 +7,7 @@ public class InsuranceCompaniesList {
 
     private static List<Insurance> insurances = new ArrayList<>();
 
-    public static List<Insurance> getInsurance() {
+    public static List<Insurance> getInsuranceCompaniesList() {
         return insurances;
     }
     public static void addInsurance(Insurance insurance) {

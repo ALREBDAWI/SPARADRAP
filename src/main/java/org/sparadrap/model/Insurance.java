@@ -2,14 +2,13 @@ package org.sparadrap.model;
 
 public class Insurance extends AbstractEntity {
     private String department;
-    private int coveragePercentage;
 
     // --------- constructor ---------
 
-    public Insurance(String name, String address, String postalCode, String city, String email, String telephone, String department, int coveragePercentage) {
+    public Insurance(String name, String address, String postalCode, String city, String email, String telephone, String department) {
         super(name, address, postalCode, city, email, telephone);
         setDepartment(department);
-        setCoveragePercentage(coveragePercentage);
+
     }
 
     // -------- get set ------------
@@ -26,36 +25,22 @@ public class Insurance extends AbstractEntity {
         }
     }
 
-    public int getCoveragePercentage() {
-        return this.coveragePercentage;
-    }
-    public void setCoveragePercentage(int coveragePercentage) {
-        if (coveragePercentage < 0 || coveragePercentage > 100) {
-            throw new IllegalArgumentException("Coverage percentage must be between 0 and 100");
-        }
-            this.coveragePercentage = coveragePercentage;
-    }
 
     // -------- display info -----------
-
-    public void displayInfo() {
-        System.out.println("---- Insurance Information ----");
-        displayCommonInfo();
-        System.out.printf("%-25s: %s%n", "Department", department);
-        System.out.printf("%-25s: %d%%%n", "Coverage", coveragePercentage);
-        System.out.println("--------------------------------");
-    }
 
     @Override
     public String toString() {
 
             StringBuilder sb = new StringBuilder();
-            sb.append("---- Insurance company Info ----\n");
-            sb.append(String.format("%-25s: %s%n", "Name", getName()));
-            sb.append(String.format("%-25s: %s%n", "Coverage Percentage", getCoveragePercentage()));
-            sb.append(String.format("%-25s: %s%n", "Phone Number", getTelephone() ));
-            sb.append(String.format("%-25s: %s%n", "departement", getDepartment()));
-            sb.append("--------------------------------\n");
+        sb.append("---- Insurance company Info ----\n");
+        sb.append(String.format("%-25s: %s%n", "Name", getName()));
+        sb.append(String.format("%-25s: %s%n", "Address", getAddress()));
+        sb.append(String.format("%-25s: %s%n", "Postal Code", getPostalCode()));
+        sb.append(String.format("%-25s: %s%n", "City", getCity()));
+        sb.append(String.format("%-25s: %s%n", "Email", getEmail()));
+        sb.append(String.format("%-25s: %s%n", "Phone Number", getTelephone()));
+        sb.append(String.format("%-25s: %s%n", "Department", getDepartment()));
+        sb.append("--------------------------------\n");
             return sb.toString();
         }
     }

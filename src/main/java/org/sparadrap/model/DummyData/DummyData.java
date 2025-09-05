@@ -32,15 +32,15 @@ public class DummyData {
 
                 Insurance insurance1 = new Insurance(
                         "HealthPlus", "1 Health St", "5000", "CityX",
-                        "contact@healthplus.com", "5555555555", "54", 80
+                        "contact@healthplus.com", "5555555555", "54"
                 );
                 Insurance insurance2 = new Insurance(
                         "MediCare", "2 Health St", "5001", "CityY",
-                        "contact@medicare.com", "6666666666", "54", 30
+                        "contact@medicare.com", "6666666666", "54"
                 );
                 Insurance insurance3 = new Insurance(
                         "WellCare", "3 Health St", "5002", "CityZ",
-                        "contact@wellcare.com", "7777777777", "54", 35
+                        "contact@wellcare.com", "7777777777", "54"
                 );
                 InsuranceCompaniesList.addInsurance(insurance1);
                 InsuranceCompaniesList.addInsurance(insurance2);
@@ -52,25 +52,25 @@ public class DummyData {
 
         List<Patient> patients = List.of(
                 new Patient("Michael", "12 Elm St", "1010", "CityX", "michael@example.com", "1111111111",
-                        "SSN001", "Johnson", LocalDate.of(1990, 5, 10), doctors.get(0), insurance1),
+                        "1231231231235", "Johnson", LocalDate.of(1990, 5, 10), doctors.get(0), insurance1, 10),
                 new Patient("Laura", "34 Maple St", "1020", "CityY", "laura@example.com", "2222222222",
-                        "SSN002", "Williams", LocalDate.of(1985, 8, 20), doctors.get(0), insurance2),
+                        "1231231234567", "Williams", LocalDate.of(1985, 8, 20), doctors.get(0), insurance2, 30),
                 new Patient("David", "56 Oak St", "1030", "CityZ", "david@example.com", "3333333333",
-                        "SSN003", "Brown", LocalDate.of(1978, 12, 5), doctors.get(1), insurance3),
+                        "1472583698527", "Brown", LocalDate.of(1978, 12, 5), doctors.get(1), insurance3, 10),
                 new Patient("Emma", "78 Pine St", "1040", "CityA", "emma@example.com", "4444444444",
-                        "SSN004", "Davis", LocalDate.of(1992, 3, 15), doctors.get(1), insurance1),
+                        "2584567891594", "Davis", LocalDate.of(1992, 3, 15), doctors.get(1), insurance1, 70),
                 new Patient("James", "90 Cedar St", "1050", "CityB", "james@example.com", "5555555555",
-                        "SSN005", "Miller", LocalDate.of(1988, 7, 25), doctors.get(1), insurance2),
+                        "1471591239514", "Miller", LocalDate.of(1988, 7, 25), doctors.get(1), insurance2, 50),
                 new Patient("Sophia", "11 Birch St", "1060", "CityC", "sophia@example.com", "6666666666",
-                        "SSN006", "Wilson", LocalDate.of(1995, 11, 30), doctors.get(2), insurance3),
+                        "1478526547539", "Wilson", LocalDate.of(1995, 11, 30), doctors.get(2), insurance3, 10),
                 new Patient("Daniel", "22 Spruce St", "1070", "CityD", "daniel@example.com", "7777777777",
-                        "SSN007", "Moore", LocalDate.of(1980, 6, 18), doctors.get(2), insurance1),
+                        "1472588526872", "Moore", LocalDate.of(1980, 6, 18), doctors.get(2), insurance1, 30),
                 new Patient("Olivia", "33 Willow St", "1080", "CityE", "olivia@example.com", "8888888888",
-                        "SSN008", "Taylor", LocalDate.of(1993, 9, 12), doctors.get(2), insurance2),
+                        "1234896572584", "Taylor", LocalDate.of(1993, 9, 12), doctors.get(2), insurance2, 30),
                 new Patient("William", "44 Fir St", "1090", "CityF", "william@example.com", "9999999999",
-                        "SSN009", "Anderson", LocalDate.of(1982, 4, 8), doctors.get(0), insurance3),
+                        "1471591479875", "Anderson", LocalDate.of(1982, 4, 8), doctors.get(0), insurance3, 10),
                 new Patient("Isabella", "55 Aspen St", "1100", "CityG", "isabella@example.com", "1010101010",
-                        "SSN010", "Thomas", LocalDate.of(1996, 1, 22), doctors.get(1), insurance1)
+                        "1471591239514", "Thomas", LocalDate.of(1996, 1, 22), doctors.get(1), insurance1, 10)
         );
         patients.forEach(patient -> {PatientsList.addPatient(patient);});
 
@@ -81,7 +81,11 @@ public class DummyData {
         Medicine med3 = new Medicine("Paracetamol", MedicineCategory.PAINKILLER, 5, LocalDate.of(2023, 1, 10), 100, false);
         Medicine med4 = new Medicine("Cetirizine", MedicineCategory.ANTIHISTAMINE, 12, LocalDate.of(2023, 6, 20), 40, false);
         Medicine med5 = new Medicine("Influvac", MedicineCategory.VACCINE, 30, LocalDate.of(2023, 9, 1), 15, true);
-
+        MedicineList.addMedicine(med1);
+        MedicineList.addMedicine(med2);
+        MedicineList.addMedicine(med3);
+        MedicineList.addMedicine(med4);
+        MedicineList.addMedicine(med5);
 
 // ----------------- Prescriptions dummy data-------------------
 
@@ -125,6 +129,6 @@ public class DummyData {
         System.out.println(PrescriptionsList.getPrescriptions());
         System.out.println(PatientsList.getPatientsList());
         System.out.println(DoctorsList.getDoctorsList());
-        System.out.println(InsuranceCompaniesList.getInsurance());
+        System.out.println(InsuranceCompaniesList.getInsuranceCompaniesList());
     }
 }

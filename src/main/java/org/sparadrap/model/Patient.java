@@ -8,10 +8,11 @@ public class Patient extends AbstractEntity {
     private LocalDate dateOfBirth;
     private Doctor treatingDoctor;
     private Insurance insurance;
+    private int percentage;
 
     // ---------- constructor -----------
 
-    public Patient(String name, String address, String postalCode, String city, String email, String telephone, String socialSecurityNumber, String lastName, LocalDate dateOfBirth, Doctor treatingDoctor,  Insurance insurance) {
+    public Patient(String name, String address, String postalCode, String city, String email, String telephone, String socialSecurityNumber, String lastName, LocalDate dateOfBirth, Doctor treatingDoctor,  Insurance insurance, int percentage) {
         super(name, address, postalCode, city, email, telephone);
         setSocialSecurityNumber(socialSecurityNumber);
         setLastName(lastName);
@@ -80,6 +81,16 @@ public class Patient extends AbstractEntity {
         }
         this.insurance = insurance;
     }
+    public int getPercentage() {
+        return this.percentage;
+    }
+    public void setPercentage(int percentage) {
+        if(percentage < 0 || percentage > 100){
+            throw new IllegalArgumentException("Invalid Percentage");
+        } else {
+            this.percentage = percentage;
+        }
+    }
 
     // ------------- print info ----------------
 
@@ -108,7 +119,8 @@ public class Patient extends AbstractEntity {
         sb.append(String.format("%-25s: %s%n", "Social Security Number", socialSecurityNumber));
         sb.append(String.format("%-25s: %s%n", "Date of Birth", dateOfBirth));
 
-        sb.append(String.format("%-25s: %s%n", "Treating Doctor", treatingDoctor.getName()));
+        sb.append(String.format("%-25s: %s%n", "Treating Doctor", treatingDoctor.getFullName()));
+        sb.append(String.format("%-25s: %s%n", "Coverage percentage", getPercentage()));
 
         sb.append("----------------------------\n");
         return sb.toString();

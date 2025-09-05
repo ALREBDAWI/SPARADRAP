@@ -42,25 +42,20 @@ public class Doctor extends AbstractEntity {
         }
     }
 
-    // ---------- print info ---------------
+    // ---------- info ---------------
 
-
-    public void displayInfo(){
-        System.out.println("---- Doctor Information ----");
-        System.out.printf("%-25s: %s%n", "Last Name", lastName);
-        displayCommonInfo();
-        System.out.printf("%-25s: %s%n", "Approval Number", approvalNumber);
-        System.out.println("----------------------------");
-    }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("---- Doctor Information ----\n");
         sb.append(String.format("%-25s: %s%n", "Name", getFullName()));
+        sb.append(String.format("%-25s: %s%n", "Address", getAddress()));
+        sb.append(String.format("%-25s: %s%n", "Postal Code", getPostalCode()));
         sb.append(String.format("%-25s: %s%n", "City", getCity()));
-        sb.append(String.format("%-25s: %s%n", "Phon Number", getTelephone()));
-        sb.append(String.format("%-25s: %s%n", "Approval Number", getApprovalNumber() ));
+        sb.append(String.format("%-25s: %s%n", "Email", getEmail()));
+        sb.append(String.format("%-25s: %s%n", "Phone Number", getTelephone()));
+        sb.append(String.format("%-25s: %s%n", "Approval Number", getApprovalNumber()));
         sb.append("--------------------------------\n");
         return sb.toString();
     }

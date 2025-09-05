@@ -35,7 +35,7 @@ public class Prescription {
     }
     public void setTreatingDoctor(Doctor treatingDoctor) {
         if (treatingDoctor == null) {
-            throw  new IllegalArgumentException("Treating Doctor Invalid!");
+            throw  new IllegalArgumentException("Treating Doctor Null!");
         }
         this.treatingDoctor = treatingDoctor;
     }
@@ -49,6 +49,9 @@ public class Prescription {
         this.patient = patient;
     }
     public List<Medicine> getMedicineList() {
+        if(MedicineList==null || MedicineList.isEmpty()){
+            throw  new IllegalArgumentException("Medicine List is Empty!");
+        }
         return this.MedicineList;
     }
 
