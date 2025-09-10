@@ -78,7 +78,7 @@ public class DummyData {
 
         Medicine med1 = new Medicine("Amoxicillin", MedicineCategory.ANTIBIOTIC, 15, LocalDate.of(2023, 3, 1), 20, true);
         Medicine med2 = new Medicine("Ibuprofen", MedicineCategory.PAINKILLER, 8, LocalDate.of(2022, 10, 15), 50, false);
-        Medicine med3 = new Medicine("Paracetamol", MedicineCategory.PAINKILLER, 5, LocalDate.of(2023, 1, 10), 100, false);
+        Medicine med3 = new Medicine("Paracetamol", MedicineCategory.PAINKILLER, 5, LocalDate.of(2023, 1, 10), 0, false);
         Medicine med4 = new Medicine("Cetirizine", MedicineCategory.ANTIHISTAMINE, 12, LocalDate.of(2023, 6, 20), 40, false);
         Medicine med5 = new Medicine("Influvac", MedicineCategory.VACCINE, 30, LocalDate.of(2023, 9, 1), 15, true);
         MedicineList.addMedicine(med1);

@@ -56,21 +56,10 @@ public class Prescription {
     }
 
 
-    // display info
-
-    public void displayInfo() {
-        System.out.println("---- Prescription Information ----");
-        System.out.printf("%-25s: %s%n", "Date", prescriptionDate);
-        System.out.printf("%-25s: %s%n", "Treating Doctor", treatingDoctor.getName());
-        System.out.printf("%-25s: %s%n", "Patient", patient.getName());
-        System.out.printf("%-25s: %s%n", "Medicine List", getMedicineList());
-        System.out.println("--------------------------------");
-    }
-
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("---- Prescription Information ----\n");
+        sb.append(" ---- Prescription Information ----\n");
         sb.append(String.format("%-25s: %s%n", "Date", prescriptionDate));
         sb.append(String.format("%-25s: %s%n", "Treating Doctor", treatingDoctor.getFullName()));
         sb.append(String.format("%-25s: %s%n", "Patient", patient.getFullName()));
