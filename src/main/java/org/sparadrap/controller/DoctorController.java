@@ -10,7 +10,6 @@ import java.util.Scanner;
 public class DoctorController {
     public static void doctorController(){
 
-        DummyData.dummyData();
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter Doctor Approval Number");
         String approvalNumber = sc.nextLine();
@@ -31,7 +30,7 @@ public class DoctorController {
 
         Doctor doctor = new Doctor(firstName,address,postalCode,city,email,phoneNumber,lastName,approvalNumber);
         DoctorsList.addDoctor(doctor);
-        System.out.println(DoctorsList.getDoctorsList());
+        System.out.println(DoctorsList.getDoctorsMap());
     }
 
     public static void main(String[] args) {

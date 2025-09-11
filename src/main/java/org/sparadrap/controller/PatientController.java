@@ -9,7 +9,6 @@ import java.util.Scanner;
 public class PatientController {
     public static Patient patientController(){
 
-        DummyData.dummyData();
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter Patient Social Security Number");
         String socialSecurityNumber = sc.nextLine();
@@ -29,34 +28,21 @@ public class PatientController {
         String city = sc.nextLine();
         System.out.println("Enter Patient date of birth");
         LocalDate dateOfBirth = LocalDate.parse(sc.nextLine());
-        System.out.println("Enter Patient treating doctor full name");
-        String treatingDoctorFullName = sc.nextLine();
-        System.out.println("Enter Insurance company name:");
-        String insuranceCompanyName = sc.nextLine();
+        System.out.println("Enter Patient treating doctor ID");
+        int doctorId = sc.nextInt();
+        System.out.println("Enter Insurance company ID:");
+        int companyId = sc.nextInt();
         System.out.println("Enter Insurance Coverage Percentage:");
         int insuranceCoveragePercentage = sc.nextInt();
 
-        Doctor treatingDoctor = null;
-        for(Doctor d : DoctorsList.getDoctorsList()){
-            if(d.getFullName().equalsIgnoreCase(treatingDoctorFullName)){
-                treatingDoctor = d;
-            }
-        }
+        Doctor treatingDoctor = DoctorsList.getDoctorById(doctorId);
 
-        Insurance insurance = null;
-        for (Insurance i : InsuranceCompaniesList.getInsuranceCompaniesList()){
-            if(i.getName().equalsIgnoreCase(insuranceCompanyName)){
-                insurance = i;
-            }
-        }
+        Insurance insurance = InsuranceCompaniesList.getInsuranceById(companyId);
 
         Patient patient = new Patient(firstName,address,postalCode,city,email,phoneNumber,socialSecurityNumber,lastName,dateOfBirth,treatingDoctor,insurance, insuranceCoveragePercentage);
         PatientsList.addPatient(patient);
-        System.out.println(PatientsList.getPatientsList());
+        System.out.println(PatientsList.getPatientsMap());
         return patient;
     }
 
-    public static void main(String[] args) {
-        PatientController.patientController();
-    }
 }

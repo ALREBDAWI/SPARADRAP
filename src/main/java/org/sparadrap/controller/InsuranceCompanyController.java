@@ -9,7 +9,6 @@ import java.util.Scanner;
 public class InsuranceCompanyController {
     public static void insuranceCompanyController(){
 
-        DummyData.dummyData();
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter Company Name");
         String name = sc.nextLine();

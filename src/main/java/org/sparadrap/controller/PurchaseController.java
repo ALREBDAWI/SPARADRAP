@@ -9,7 +9,6 @@ import java.util.*;
 public class PurchaseController {
 
     public static void CreatePurchase(){
-        DummyData.dummyData();
         Scanner sc = new Scanner(System.in);
         LocalDate purchaseDate =  LocalDate.now();
         List<Medicine> purchasedMeds = new ArrayList<>();
@@ -17,8 +16,8 @@ public class PurchaseController {
         System.out.println("2 without Prescription");
         int choice = sc.nextInt();
         switch (choice){
-            case 1:
 
+            case 1:
                 int prescriptionId;
                 System.out.println("Enter prescription ID");
                 prescriptionId = sc.nextInt();
@@ -31,27 +30,24 @@ public class PurchaseController {
                 break;
 
             case 2:
-
                 int medicineQuantity;
                 System.out.println("how many units of medicine do you want?");
                 medicineQuantity = sc.nextInt();
-                String medicineName;
                 sc.nextLine();
+                String medicineName;
                 for(int i = 0; i < medicineQuantity; i++){
                     System.out.println("Enter medicine name");
                     medicineName = sc.nextLine();
-                    for (Medicine m : MedicineList.getMedicineList()) {
+                    for (Medicine m : MedicineList.getMedicineStockList()) {
                         if(m.getMedicineName().equalsIgnoreCase(medicineName) && !m.isWithPrescription()){
-
                             System.out.println("Enter " + medicineName + " quantity");
                             int quantity = sc.nextInt();
-                            if(quantity < m.getQuantity()){
+                            if(quantity <= m.getQuantity()){
                                 purchasedMeds.add(m);
                                 m.setQuantity(m.getQuantity() - quantity);
                             }else {
                                 System.out.println("not enough medicine in stock, try again with smaller quantity" + m.getMedicineName());
                             }
-                            break;
                         }
                     }
                 }
@@ -61,6 +57,7 @@ public class PurchaseController {
                 PurchaseList.addPurchaseToList(purchase);
                 System.out.println(purchase);
                 System.out.println(PurchaseList.getPurchaseList());
+                break;
 
         }
 

@@ -10,30 +10,29 @@ import java.util.Scanner;
 public class PrescriptionController {
     public static Prescription enterNewPrescription(){
 
-        DummyData.dummyData();
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter doctor full name:");
-        String doctorName = sc.nextLine();
-        System.out.println("Enter  patient full name:");
-        String patientName = sc.nextLine();
+        System.out.println("Enter doctor ID:");
+        int doctorId = sc.nextInt();
+        System.out.println("Enter  patient ID:");
+        int patientId = sc.nextInt();
+        sc.nextLine();
         System.out.println("Enter prescription date (yyyy-MM-dd):");
         LocalDate prescriptionDate = LocalDate.parse(sc.nextLine());
 
-        Patient patient =  null;
-        for(Patient p : PatientsList.getPatientsList()){
-            if(p != null && patientName.equalsIgnoreCase(p.getFullName())){
-                patient = p;
-            }
+        Doctor doctor = DoctorsList.getDoctorById(doctorId);
+
+        Patient patient = PatientsList.getPatientById(patientId);
+
+        if(doctor == null){
+            System.out.println("Doctor not found or Invalid ID, try again");
+            return  null;
+        }
+        if(patient == null){
+            System.out.println("Patient not found or Invalid ID, try again");
+            return  null;
         }
 
-        Doctor doctor = null;
-        for(Doctor d : DoctorsList.getDoctorsList()){
-            if(d != null && doctorName.equalsIgnoreCase(d.getFullName())){
-                doctor = d;
-            }
-        }
-
-        System.out.println("how many medicines in this prescription?");
+        System.out.println("how many medicines are in this prescription?");
         int medicinesInPrescription = sc.nextInt();
         sc.nextLine();
         ArrayList<Medicine> medicines = new ArrayList<>();
@@ -42,7 +41,7 @@ public class PrescriptionController {
             System.out.println("enter medicine number " + (i+1) + " :");
             String medicineName = sc.nextLine();
             boolean found = false;
-            for (Medicine m : MedicineList.getMedicineList()){
+            for (Medicine m : MedicineList.getMedicineStockList()){
                 if(m.getMedicineName().equalsIgnoreCase(medicineName)){
                     medicines.add(m);
                     found = true;

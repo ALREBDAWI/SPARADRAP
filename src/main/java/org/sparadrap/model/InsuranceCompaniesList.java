@@ -1,19 +1,30 @@
 package org.sparadrap.model;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 public class InsuranceCompaniesList {
 
-    private static List<Insurance> insurances = new ArrayList<>();
+    private static Map<Integer, Insurance> insurances = new HashMap<>();
+    private static int idCounter = 1;
 
-    public static List<Insurance> getInsuranceCompaniesList() {
+    // رجّع كل شركات التأمين
+    public static Map<Integer, Insurance> getInsuranceCompaniesList() {
         return insurances;
     }
+
+    // أضف شركة جديدة
     public static void addInsurance(Insurance insurance) {
-        insurances.add(insurance);
+        insurances.put(idCounter++, insurance);
     }
-    public static void removeInsurance(Insurance insurance) {
-        insurances.remove(insurance);
+
+    // احذف شركة تأمين بالـ ID
+    public static void removeInsurance(int id) {
+        insurances.remove(id);
+    }
+
+    // احصل على شركة تأمين بالـ ID
+    public static Insurance getInsuranceById(int id) {
+        return insurances.get(id);
     }
 }

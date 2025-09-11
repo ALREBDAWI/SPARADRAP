@@ -78,14 +78,14 @@ public class DummyData {
 
         Medicine med1 = new Medicine("Amoxicillin", MedicineCategory.ANTIBIOTIC, 15, LocalDate.of(2023, 3, 1), 20, true);
         Medicine med2 = new Medicine("Ibuprofen", MedicineCategory.PAINKILLER, 8, LocalDate.of(2022, 10, 15), 50, false);
-        Medicine med3 = new Medicine("Paracetamol", MedicineCategory.PAINKILLER, 5, LocalDate.of(2023, 1, 10), 0, false);
+        Medicine med3 = new Medicine("Paracetamol", MedicineCategory.PAINKILLER, 5, LocalDate.of(2023, 1, 10), 1, false);
         Medicine med4 = new Medicine("Cetirizine", MedicineCategory.ANTIHISTAMINE, 12, LocalDate.of(2023, 6, 20), 40, false);
         Medicine med5 = new Medicine("Influvac", MedicineCategory.VACCINE, 30, LocalDate.of(2023, 9, 1), 15, true);
-        MedicineList.addMedicine(med1);
-        MedicineList.addMedicine(med2);
-        MedicineList.addMedicine(med3);
-        MedicineList.addMedicine(med4);
-        MedicineList.addMedicine(med5);
+        MedicineList.addMedicineToStock(med1);
+        MedicineList.addMedicineToStock(med2);
+        MedicineList.addMedicineToStock(med3);
+        MedicineList.addMedicineToStock(med4);
+        MedicineList.addMedicineToStock(med5);
 
 // ----------------- Prescriptions dummy data-------------------
 
@@ -124,11 +124,4 @@ public class DummyData {
         prescriptions.forEach(prescription -> {PrescriptionsList.addPrescription(prescription);});
     }
 
-    public static void main(String[] args) {
-        DummyData.dummyData();
-        System.out.println(PrescriptionsList.getPrescriptions());
-        System.out.println(PatientsList.getPatientsList());
-        System.out.println(DoctorsList.getDoctorsList());
-        System.out.println(InsuranceCompaniesList.getInsuranceCompaniesList());
-    }
 }

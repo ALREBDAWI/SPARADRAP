@@ -93,7 +93,17 @@ public class Medicine {
 
     @Override
     public String toString() {
-       return String.format(medicineName);
+       StringBuilder sb = new StringBuilder();
+        System.out.println("---- Medicine Information ----");
+        System.out.printf("%-25s: %s%n", "Medicine Name", medicineName);
+        System.out.printf("%-25s: %s%n", "Category", category);
+        System.out.printf("%-25s: %f%n", "Price", price);
+        System.out.printf("%-25s: %s%n", "Start Date", startDate);
+        System.out.printf("%-25s: %d%n", "Quantity", quantity);
+        System.out.printf("%-25s: %s%n", "Requires Prescription", isWithPrescription ? "Yes" : "No");
+        System.out.println("--------------------------------");
+        return sb.toString();
+
     }
 
 }
