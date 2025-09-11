@@ -8,7 +8,7 @@ public class Prescription {
     private LocalDate prescriptionDate;
     private Doctor treatingDoctor;
     private Patient patient;
-    private final List<Medicine> MedicineList;
+    private List<Medicine> medicineList;
 
     // --------- constructor --------
 
@@ -16,7 +16,7 @@ public class Prescription {
         setPrescriptionDate(prescriptionDate);
         setTreatingDoctor(treatingDoctor);
         setPatient(patient);
-        this.MedicineList = List.copyOf(MedicineList);
+        this.medicineList = new ArrayList<>(MedicineList);
     }
 
     // --------- getter and setter --------
@@ -49,10 +49,10 @@ public class Prescription {
         this.patient = patient;
     }
     public List<Medicine> getMedicineList() {
-        if(MedicineList==null || MedicineList.isEmpty()){
+        if(medicineList==null || medicineList.isEmpty()){
             throw  new IllegalArgumentException("Medicine List is Empty!");
         }
-        return this.MedicineList;
+        return this.medicineList;
     }
 
 

@@ -1,5 +1,6 @@
 package org.sparadrap.model;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class DoctorsList {
@@ -20,5 +21,17 @@ public class DoctorsList {
 
    public static Doctor getDoctorById(int doctorId) {
       return doctorsMap.get(doctorId);
+   }
+
+   public static void getDoctorsFullNamesList() {
+      System.out.println("================= ALL DOCTORS ==================");
+      System.out.printf("%-10s | %-30s%n", "Doctor ID", "Full Name");
+      System.out.println("-------------------------------------------------");
+
+      for (HashMap.Entry<Integer, Doctor> entry : doctorsMap.entrySet()) {
+         System.out.printf("%-10d | %-30s%n", entry.getKey(), entry.getValue().getFullName());
+      }
+
+      System.out.println("=================================================");
    }
 }

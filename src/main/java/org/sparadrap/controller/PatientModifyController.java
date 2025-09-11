@@ -28,6 +28,7 @@ public class PatientModifyController {
                "Selected Patient: " + patient.getFullName() + "\n" +
                "Choose what you want to modify (enter 0 to exit):"
             );
+            System.out.println("0 - Go Back");
             System.out.println("1 - First Name");
             System.out.println("2 - Last Name");
             System.out.println("3 - Postal Code");
@@ -40,6 +41,7 @@ public class PatientModifyController {
             System.out.println("10 - Treating Doctor");
             System.out.println("11 - Insurance Company");
             System.out.println("12 - Insurance Coverage Percentage");
+            System.out.println("13 - See modified patient");
 
             int choice = sc.nextInt();
             sc.nextLine();
@@ -113,6 +115,7 @@ public class PatientModifyController {
                     break;
 
                 case 10:
+                    DoctorsList.getDoctorsFullNamesList();
                     System.out.println("Enter Treating Doctor ID:");
                     int doctorId = sc.nextInt();
                     sc.nextLine();
@@ -126,6 +129,7 @@ public class PatientModifyController {
                     break;
 
                 case 11:
+                    InsuranceCompaniesList.getInsuranceCompaniesFullNamesList();
                     System.out.println("Enter Insurance Company ID:");
                     int insuranceId = sc.nextInt();
                     sc.nextLine();
@@ -145,7 +149,10 @@ public class PatientModifyController {
                     patient.setPercentage(insuranceCoveragePercentage);
                     System.out.println("Insurance coverage percentage updated successfully!");
                     break;
-
+                case 13:
+                    System.out.println("Modified patient: ");
+                    System.out.println(patient);
+                    break;
                 default:
                     System.out.println("Invalid choice, please try again.");
             }

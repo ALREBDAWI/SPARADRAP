@@ -93,7 +93,6 @@ public abstract class AbstractEntity {
         }
     }
 
-
     protected void displayCommonInfo() {
         System.out.printf("%-25s: %s%n", "Name", name);
         System.out.printf("%-25s: %s%n", "Address", address);
@@ -102,5 +101,4 @@ public abstract class AbstractEntity {
         System.out.printf("%-25s: %s%n", "Email", email);
         System.out.printf("%-25s: %s%n", "Telephone", telephone);
     }
-
 }

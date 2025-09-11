@@ -11,7 +11,6 @@ public class Purchase {
     private LocalDate purchaseDate;
     private List<Medicine> PurchasedMeds;
 
-
     // --------- constructor -----------
 
     public Purchase(boolean isWithPrescription, Prescription prescription, LocalDate purchaseDate, List<Medicine> PurchasedMeds) {
