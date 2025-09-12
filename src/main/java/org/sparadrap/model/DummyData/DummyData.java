@@ -122,6 +122,43 @@ public class DummyData {
                 )
         );
         prescriptions.forEach(prescription -> {PrescriptionsList.addPrescription(prescription);});
+
+        // ----------------- Purchases dummy data -------------------
+
+
+        // Purchase with prescription
+        Purchase purchase1 = new Purchase(true, prescriptions.get(0), LocalDate.now(), prescriptions.get(0).getMedicineList());
+
+        // Purchase without prescription (yesterday)
+        List<Medicine> medsWithoutRx1 = new ArrayList<>();
+        medsWithoutRx1.add(med2);
+        medsWithoutRx1.add(med3);
+        Purchase purchase2 = new Purchase(false, LocalDate.now().minusDays(1), medsWithoutRx1);
+
+        // Purchase with prescription (3 days ago)
+        Purchase purchase3 = new Purchase(true, prescriptions.get(1), LocalDate.now().minusDays(3), prescriptions.get(1).getMedicineList());
+
+        // Purchase without prescription (5 days ago)
+        List<Medicine> medsWithoutRx2 = new ArrayList<>();
+        medsWithoutRx2.add(med4);
+        Purchase purchase4 = new Purchase(false, LocalDate.now().minusDays(5), medsWithoutRx2);
+
+        // Purchase with prescription (7 days ago)
+        Purchase purchase5 = new Purchase(true, prescriptions.get(2), LocalDate.now().minusDays(7), prescriptions.get(2).getMedicineList());
+
+        // Purchase without prescription (10 days ago)
+        List<Medicine> medsWithoutRx3 = new ArrayList<>();
+        medsWithoutRx3.add(med1);
+        medsWithoutRx3.add(med5);
+        Purchase purchase6 = new Purchase(false, LocalDate.now().minusDays(10), medsWithoutRx3);
+
+        PurchaseList.addPurchaseToList(purchase1);
+        PurchaseList.addPurchaseToList(purchase2);
+        PurchaseList.addPurchaseToList(purchase3);
+        PurchaseList.addPurchaseToList(purchase4);
+        PurchaseList.addPurchaseToList(purchase5);
+        PurchaseList.addPurchaseToList(purchase6);
+
     }
 
 }

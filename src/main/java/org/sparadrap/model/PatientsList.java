@@ -7,6 +7,7 @@ public class PatientsList {
     private static int idCounter = 1;
 
     public static HashMap<Integer, Patient> getPatientsMap() {
+        System.out.println("Patients Map");
         return patientsMap;
     }
 

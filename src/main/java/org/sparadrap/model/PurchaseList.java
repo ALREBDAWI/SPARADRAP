@@ -1,16 +1,25 @@
 package org.sparadrap.model;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 public class PurchaseList {
-    private static List<Purchase> purchaseList =  new ArrayList<Purchase>();
+    private static Map<Integer, Purchase> purchaseList = new HashMap<>();
+    private static int id = 1;
 
-    public static List<Purchase> getPurchaseList() {
-        System.out.println("getPurchaseList");
+    public static Map<Integer, Purchase> getPurchaseList() {
         return purchaseList;
     }
+
     public static void addPurchaseToList(Purchase purchase) {
-        purchaseList.add(purchase);
+        purchaseList.put(id++, purchase);
+    }
+
+    public static Purchase getPurchaseById(int id) {
+        return purchaseList.get(id);
+    }
+
+    public static void removePurchaseFromList(Purchase purchase) {
+        purchaseList.values().remove(purchase);
     }
 }
