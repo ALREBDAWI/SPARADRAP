@@ -39,6 +39,9 @@ public class Purchase {
         return this.prescription;
     }
     public void setPrescription(Prescription prescription) {
+        if (prescription == null || !isWithPrescription) {
+            throw  new IllegalArgumentException("Prescription must not be null");
+        }
         this.prescription = prescription;
     }
 
@@ -55,6 +58,9 @@ public class Purchase {
         return this.PurchasedMeds;
     }
     public void setPurchasedMeds(List<Medicine> PurchasedMeds) {
+        if (PurchasedMeds == null || PurchasedMeds.isEmpty()) {
+            throw  new IllegalArgumentException("Purchase medicine must not be null or empty");
+        }
         this.PurchasedMeds = PurchasedMeds;
     }
 

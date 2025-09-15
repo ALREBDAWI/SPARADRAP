@@ -56,7 +56,7 @@ public class Medicine {
         return this.startDate;
     }
     public void setStartDate(LocalDate startDate) {
-        if(startDate.isAfter(LocalDate.now())){
+        if(startDate == null || startDate.isAfter(LocalDate.now())){
             throw new IllegalArgumentException("Start date cannot be after now");
         }
         this.startDate = startDate;
@@ -79,31 +79,17 @@ public class Medicine {
         this.isWithPrescription = withPrescription;
     }
 
-    public void displayInfo(){
-        System.out.println("---- Medicine Information ----");
-        System.out.printf("%-25s: %s%n", "Medicine Name", medicineName);
-        System.out.printf("%-25s: %s%n", "Category", category);
-        System.out.printf("%-25s: %f%n", "Price", price);
-        System.out.printf("%-25s: %s%n", "Start Date", startDate);
-        System.out.printf("%-25s: %d%n", "Quantity", quantity);
-        System.out.printf("%-25s: %s%n", "Requires Prescription", isWithPrescription ? "Yes" : "No");
-        System.out.println("--------------------------------");
-
-    }
-
     @Override
     public String toString() {
-       StringBuilder sb = new StringBuilder();
-        System.out.println("---- Medicine Information ----");
-        System.out.printf("%-25s: %s%n", "Medicine Name", medicineName);
-        System.out.printf("%-25s: %s%n", "Category", category);
-        System.out.printf("%-25s: %f%n", "Price", price);
-        System.out.printf("%-25s: %s%n", "Start Date", startDate);
-        System.out.printf("%-25s: %d%n", "Quantity", quantity);
-        System.out.printf("%-25s: %s%n", "Requires Prescription", isWithPrescription ? "Yes" : "No");
-        System.out.println("--------------------------------");
+        StringBuilder sb = new StringBuilder();
+        sb.append("---- Medicine Information ----\n");
+        sb.append(String.format("%-25s: %s%n", "Medicine Name", medicineName));
+        sb.append(String.format("%-25s: %s%n", "Category", category));
+        sb.append(String.format("%-25s: %.2f%n", "Price", price));
+        sb.append(String.format("%-25s: %s%n", "Start Date", startDate));
+        sb.append(String.format("%-25s: %d%n", "Quantity", quantity));
+        sb.append(String.format("%-25s: %s%n", "Requires Prescription", isWithPrescription ? "Yes" : "No"));
+        sb.append("--------------------------------\n");
         return sb.toString();
-
     }
-
 }

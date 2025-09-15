@@ -49,7 +49,7 @@ public abstract class AbstractEntity {
         return this.postalCode;
     }
     public void setPostalCode(String postalCode) {
-        String regex = "^[0-9\\p{L}\\s.,'#-]+$";
+        String regex = "^[A-Za-z0-9](?:[A-Za-z0-9\\\\s-]{1,8}[A-Za-z0-9])?$";
         if (postalCode.matches(regex)) {
             this.postalCode = postalCode;
         }else{
@@ -73,7 +73,7 @@ public abstract class AbstractEntity {
         return this.email;
     }
     public void setEmail(String email) {
-        String regex = "^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$";
+        String regex = "(?![.])[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}";
         if (email.matches(regex)) {
             this.email = email;
         }else{
