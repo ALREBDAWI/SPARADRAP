@@ -19,6 +19,7 @@ public class Patient extends AbstractEntity {
         setDateOfBirth(dateOfBirth);
         setTreatingDoctor(treatingDoctor);
         setInsurance(insurance);
+        setPercentage(percentage);
     }
 
     // --------- getter and setter ----------

@@ -55,7 +55,7 @@ public class PurchaseTest {
     // with prescription valid test
     @Test
     void purchaseWithPrescriptionTest(){
-        Purchase purchase = new Purchase(true, prescription,LocalDate.of(2024,5,5),meds);
+        Purchase purchase = new Purchase(prescription,LocalDate.of(2024,5,5),meds);
 
         assertTrue(purchase.getIsWithPrescription());
         assertEquals(prescription,purchase.getPrescription());
@@ -66,10 +66,10 @@ public class PurchaseTest {
     // without prescription valid test
     @Test
     void purchaseWithoutPrescriptionValidTest() {
-        Purchase purchase = new Purchase(false, LocalDate.of(2024, 5, 10), meds);
+        Purchase purchase = new Purchase(LocalDate.of(2024, 5, 10), meds);
 
         assertFalse(purchase.getIsWithPrescription());
-        assertNull(purchase.getPrescription());
+        assertThrows(IllegalArgumentException.class, () -> purchase.getPrescription());
         assertEquals(meds, purchase.getPurchasedMeds());
         assertEquals(LocalDate.of(2024, 5, 10), purchase.getPurchaseDate());
     }
@@ -81,14 +81,15 @@ public class PurchaseTest {
     @Test
     void purchaseWithNullPurchaseDate() {
         assertThrows(IllegalArgumentException.class, () ->
-                new Purchase(true, prescription, null, meds));
+                new Purchase(prescription, null, meds));
     }
 
     @Test
     void purchaseWithFutureDate() {
         LocalDate futureDate = LocalDate.now().plusDays(5);
         assertThrows(IllegalArgumentException.class, () ->
-                new Purchase(false, futureDate, meds));
+                new Purchase(futureDate, meds));
     }
+
 
 }

@@ -6,22 +6,24 @@ import java.util.List;
 
 public class Purchase {
 
-    private boolean isWithPrescription;
+    private final boolean isWithPrescription;
     private Prescription prescription;
     private LocalDate purchaseDate;
-    private List<Medicine> PurchasedMeds;
+    private List<Medicine> purchasedMeds;
+
 
     // --------- constructor -----------
 
-    public Purchase(boolean isWithPrescription, Prescription prescription, LocalDate purchaseDate, List<Medicine> PurchasedMeds) {
-        setIsWithPrescription(isWithPrescription);
+    public Purchase(Prescription prescription, LocalDate purchaseDate, List<Medicine> PurchasedMeds) {
+        this.isWithPrescription = true ;
         setPrescription(prescription);
         setPurchaseDate(purchaseDate);
         setPurchasedMeds(PurchasedMeds);
     }
 
-    public Purchase(boolean isWithPrescription, LocalDate purchaseDate, List<Medicine> PurchasedMeds) {
-        setIsWithPrescription(isWithPrescription);
+    public Purchase(LocalDate purchaseDate, List<Medicine> PurchasedMeds) {
+        this.isWithPrescription = false;
+        this.prescription = null;
         setPurchaseDate(purchaseDate);
         setPurchasedMeds(PurchasedMeds);
     }
@@ -30,9 +32,6 @@ public class Purchase {
 
     public boolean getIsWithPrescription() {
         return this.isWithPrescription;
-    }
-    public void setIsWithPrescription(boolean isWithPrescription) {
-        this.isWithPrescription = isWithPrescription;
     }
 
     public Prescription getPrescription() {
@@ -55,13 +54,30 @@ public class Purchase {
         this.purchaseDate = purchaseDate;
     }
     public List<Medicine> getPurchasedMeds() {
-        return this.PurchasedMeds;
+        return this.purchasedMeds;
     }
-    public void setPurchasedMeds(List<Medicine> PurchasedMeds) {
-        if (PurchasedMeds == null || PurchasedMeds.isEmpty()) {
+
+    public void setPurchasedMeds(List<Medicine> purchasedMeds) {
+        if (purchasedMeds == null || purchasedMeds.isEmpty()) {
             throw  new IllegalArgumentException("Purchase medicine must not be null or empty");
         }
-        this.PurchasedMeds = PurchasedMeds;
+        this.purchasedMeds = new ArrayList<>(purchasedMeds);
+    }
+
+
+    public float getTotalPrice() {
+            float total = 0;
+        for (Medicine medicine : purchasedMeds) {
+            total += medicine.getPrice();
+        }
+        return total;
+    }
+
+    public float getPriceAfterInsurance() {
+        float totalAfterInsurance = 0;
+        int percentage = prescription.getPatient().getPercentage();
+        totalAfterInsurance = getTotalPrice() - (getTotalPrice() * percentage / 100f) ;
+        return  totalAfterInsurance;
     }
 
     @Override
@@ -70,6 +86,7 @@ public class Purchase {
         sb.append("---- Purchase Information ----\n");
         sb.append(String.format("%-25s: %s%n", "With Prescription", isWithPrescription ? "Yes" : "No"));
         sb.append(String.format("%-25s: %s%n", "Purchase Date", purchaseDate));
+        sb.append(String.format("%-25s: %s%n", "total price", getTotalPrice()));
 
         List<Medicine> meds = getPurchasedMeds();
         sb.append("---- Medicines ----\n");
@@ -87,6 +104,7 @@ public class Purchase {
             sb.append(String.format("%-25s: %s%n", "Prescription Date", prescription.getPrescriptionDate()));
             sb.append(String.format("%-25s: %s %s%n", "Doctor", prescription.getTreatingDoctor().getName(), prescription.getTreatingDoctor().getLastName()));
             sb.append(String.format("%-25s: %s %s%n", "Patient", prescription.getPatient().getName(), prescription.getPatient().getLastName()));
+            sb.append(String.format("%-25s: %s%n", "total price after insurance", getPriceAfterInsurance() ));
         }
 
         sb.append("--------------------------------\n");

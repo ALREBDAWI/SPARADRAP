@@ -52,7 +52,7 @@ public class DummyData {
 
         List<Patient> patients = List.of(
                 new Patient("Michael", "12 Elm St", "1010", "CityX", "michael@example.com", "1111111111",
-                        "1231231231235", "Johnson", LocalDate.of(1990, 5, 10), doctors.get(0), insurance1, 10),
+                        "1231231231235", "Johnson", LocalDate.of(1990, 5, 10), doctors.get(0), insurance1, 50),
                 new Patient("Laura", "34 Maple St", "1020", "CityY", "laura@example.com", "2222222222",
                         "1231231234567", "Williams", LocalDate.of(1985, 8, 20), doctors.get(0), insurance2, 30),
                 new Patient("David", "56 Oak St", "1030", "CityZ", "david@example.com", "3333333333",
@@ -78,7 +78,7 @@ public class DummyData {
 
         Medicine med1 = new Medicine("Amoxicillin", MedicineCategory.ANTIBIOTIC, 15, LocalDate.of(2023, 3, 1), 20, true);
         Medicine med2 = new Medicine("Ibuprofen", MedicineCategory.PAINKILLER, 8, LocalDate.of(2022, 10, 15), 50, false);
-        Medicine med3 = new Medicine("Paracetamol", MedicineCategory.PAINKILLER, 5, LocalDate.of(2023, 1, 10), 1, false);
+        Medicine med3 = new Medicine("Paracetamol", MedicineCategory.PAINKILLER, 5, LocalDate.of(2023, 1, 10), 10, false);
         Medicine med4 = new Medicine("Cetirizine", MedicineCategory.ANTIHISTAMINE, 12, LocalDate.of(2023, 6, 20), 40, false);
         Medicine med5 = new Medicine("Influvac", MedicineCategory.VACCINE, 30, LocalDate.of(2023, 9, 1), 15, true);
         MedicineList.addMedicineToStock(med1);
@@ -127,30 +127,30 @@ public class DummyData {
 
 
         // Purchase with prescription
-        Purchase purchase1 = new Purchase(true, prescriptions.get(0), LocalDate.now(), prescriptions.get(0).getMedicineList());
+        Purchase purchase1 = new Purchase(prescriptions.get(0), LocalDate.now(), prescriptions.get(0).getMedicineList());
 
         // Purchase without prescription (yesterday)
         List<Medicine> medsWithoutRx1 = new ArrayList<>();
         medsWithoutRx1.add(med2);
         medsWithoutRx1.add(med3);
-        Purchase purchase2 = new Purchase(false, LocalDate.now().minusDays(1), medsWithoutRx1);
+        Purchase purchase2 = new Purchase(LocalDate.now().minusDays(1), medsWithoutRx1);
 
         // Purchase with prescription (3 days ago)
-        Purchase purchase3 = new Purchase(true, prescriptions.get(1), LocalDate.now().minusDays(3), prescriptions.get(1).getMedicineList());
+        Purchase purchase3 = new Purchase(prescriptions.get(1), LocalDate.now().minusDays(3), prescriptions.get(1).getMedicineList());
 
         // Purchase without prescription (5 days ago)
         List<Medicine> medsWithoutRx2 = new ArrayList<>();
         medsWithoutRx2.add(med4);
-        Purchase purchase4 = new Purchase(false, LocalDate.now().minusDays(5), medsWithoutRx2);
+        Purchase purchase4 = new Purchase(LocalDate.now().minusDays(5), medsWithoutRx2);
 
         // Purchase with prescription (7 days ago)
-        Purchase purchase5 = new Purchase(true, prescriptions.get(2), LocalDate.now().minusDays(7), prescriptions.get(2).getMedicineList());
+        Purchase purchase5 = new Purchase(prescriptions.get(2), LocalDate.now().minusDays(7), prescriptions.get(2).getMedicineList());
 
         // Purchase without prescription (10 days ago)
         List<Medicine> medsWithoutRx3 = new ArrayList<>();
         medsWithoutRx3.add(med1);
         medsWithoutRx3.add(med5);
-        Purchase purchase6 = new Purchase(false, LocalDate.now().minusDays(10), medsWithoutRx3);
+        Purchase purchase6 = new Purchase(LocalDate.now().minusDays(10), medsWithoutRx3);
 
         PurchaseList.addPurchaseToList(purchase1);
         PurchaseList.addPurchaseToList(purchase2);
