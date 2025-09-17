@@ -2,7 +2,12 @@ package org.sparadrap.controller;
 
 import org.sparadrap.model.InsuranceModel.Insurance;
 import org.sparadrap.model.InsuranceModel.InsuranceCompaniesList;
+import org.sparadrap.model.InsuranceModel.InsurancePlan;
+import org.sparadrap.model.MedicineModel.Medicine;
+import org.sparadrap.model.MedicineModel.MedicineList;
 
+import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class InsuranceCompanyController {
@@ -24,7 +29,30 @@ public class InsuranceCompanyController {
         System.out.println("Enter Department");
         String department = sc.nextLine();
 
-        Insurance insurance = new Insurance(name,address,postalCode,city,email,phoneNumber,department);
+        System.out.println("how many insurance plans you want to add");
+        int plansNumber = sc.nextInt();
+        sc.nextLine();
+        ArrayList<InsurancePlan> plans = new ArrayList<>();
+
+        for(int i=0;i < plansNumber;i++){
+            while (true){
+                System.out.println((i+1) + " " + "choose between : STANDARD, PREMIUM, ULTRA ");
+                String selectedPlan = sc.nextLine();
+                try{
+                    InsurancePlan plan = InsurancePlan.valueOf(selectedPlan);
+                    if(!plans.contains(plan)){
+                        plans.add(plan);
+                        break;
+                    }else {
+                        System.out.println("this plan is already added !");
+                    }
+                } catch(IllegalArgumentException e){
+                    System.out.println("Invalid plan type! Please enter STANDARD, PREMIUM, or ULTRA.");
+                }
+            }
+        }
+
+        Insurance insurance = new Insurance(name,address,postalCode,city,email,phoneNumber,department, plans);
         InsuranceCompaniesList.addInsurance(insurance);
 
     }

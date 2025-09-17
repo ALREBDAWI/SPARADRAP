@@ -4,6 +4,7 @@ import org.sparadrap.model.DoctorModel.Doctor;
 import org.sparadrap.model.DoctorModel.DoctorsList;
 import org.sparadrap.model.InsuranceModel.Insurance;
 import org.sparadrap.model.InsuranceModel.InsuranceCompaniesList;
+import org.sparadrap.model.InsuranceModel.InsurancePlan;
 import org.sparadrap.model.MedicineModel.Medicine;
 import org.sparadrap.model.MedicineModel.MedicineCategory;
 import org.sparadrap.model.MedicineModel.MedicineList;
@@ -42,17 +43,25 @@ public class DummyData {
 
 // ---------------------- insurance dummy data -------------------------
 
+        ArrayList<InsurancePlan> plans1 = new ArrayList<>();
+        plans1.add(InsurancePlan.STANDARD);
+        plans1.add(InsurancePlan.PREMIUM);
+
+        ArrayList<InsurancePlan> plans2 = new ArrayList<>();
+        plans2.add(InsurancePlan.ULTRA);
+
+
                 Insurance insurance1 = new Insurance(
                         "HealthPlus", "1 Health St", "5000", "CityX",
-                        "contact@healthplus.com", "5555555555", "54"
+                        "contact@healthplus.com", "5555555555", "54",plans1
                 );
                 Insurance insurance2 = new Insurance(
                         "MediCare", "2 Health St", "5001", "CityY",
-                        "contact@medicare.com", "6666666666", "54"
+                        "contact@medicare.com", "6666666666", "54",plans2
                 );
                 Insurance insurance3 = new Insurance(
                         "WellCare", "3 Health St", "5002", "CityZ",
-                        "contact@wellcare.com", "7777777777", "54"
+                        "contact@wellcare.com", "7777777777", "54",plans2
                 );
                 InsuranceCompaniesList.addInsurance(insurance1);
                 InsuranceCompaniesList.addInsurance(insurance2);
@@ -63,7 +72,7 @@ public class DummyData {
 
         List<Patient> patients = List.of(
                 new Patient("Michael", "12 Elm St", "1010", "CityX", "michael@example.com", "1111111111",
-                        "1231231231235", "Johnson", LocalDate.of(1990, 5, 10), doctors.get(0), insurance1, 50),
+                        "1231231231235", "Johnson", LocalDate.of(1990, 5, 10), doctors.get(0), insurance1, insurance1.getPlans().get(0).getCoverage()),
                 new Patient("Laura", "34 Maple St", "1020", "CityY", "laura@example.com", "2222222222",
                         "1231231234567", "Williams", LocalDate.of(1985, 8, 20), doctors.get(0), insurance2, 30),
                 new Patient("David", "56 Oak St", "1030", "CityZ", "david@example.com", "3333333333",

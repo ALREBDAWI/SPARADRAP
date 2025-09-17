@@ -30,8 +30,4 @@ public class DoctorController {
         DoctorsList.addDoctor(doctor);
         System.out.println(DoctorsList.getDoctorsMap());
     }
-
-    public static void main(String[] args) {
-        doctorController();
-    }
 }

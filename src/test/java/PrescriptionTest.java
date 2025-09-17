@@ -2,6 +2,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.sparadrap.model.DoctorModel.Doctor;
 import org.sparadrap.model.InsuranceModel.Insurance;
+import org.sparadrap.model.InsuranceModel.InsurancePlan;
 import org.sparadrap.model.MedicineModel.Medicine;
 import org.sparadrap.model.MedicineModel.MedicineCategory;
 import org.sparadrap.model.PatientModel.Patient;
@@ -9,6 +10,7 @@ import org.sparadrap.model.PurchaseModel.Prescription;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
@@ -24,6 +26,12 @@ public class PrescriptionTest {
 
     @BeforeEach
     public void setUp(){
+
+        // adding insurance plans to insurance company
+        ArrayList<InsurancePlan> plans = new ArrayList<>();
+        plans.add(InsurancePlan.STANDARD);
+        plans.add(InsurancePlan.PREMIUM);
+
         doctor = new Doctor(
                 "Alice", "789 Pine St", "3000", "CityC",
                 "alice@example.com", "1122334455", "Brown", "APP789"
@@ -31,7 +39,7 @@ public class PrescriptionTest {
 
         Insurance insurance = new Insurance(
                 "HealthPlus", "1 Health St", "5000", "CityX",
-                "contact@healthplus.com", "5555555555", "54"
+                "contact@healthplus.com", "5555555555", "54", plans
         );
 
         patient = new Patient("Michael", "12 Elm St", "1010", "CityX", "michael@example.com", "1111111111",

@@ -6,6 +6,7 @@ import org.sparadrap.model.InsuranceModel.Insurance;
 import org.sparadrap.model.InsuranceModel.InsuranceCompaniesList;
 import org.sparadrap.model.PatientModel.Patient;
 import org.sparadrap.model.PatientModel.PatientsList;
+import org.sparadrap.view.PatientModifyMenu;
 
 import java.time.LocalDate;
 import java.util.Scanner;
@@ -32,20 +33,8 @@ public class PatientModifyController {
                "Selected Patient: " + patient.getFullName() + "\n" +
                "Choose what you want to modify (enter 0 to exit):"
             );
-            System.out.println("0 - Go Back");
-            System.out.println("1 - First Name");
-            System.out.println("2 - Last Name");
-            System.out.println("3 - Postal Code");
-            System.out.println("4 - Phone Number");
-            System.out.println("5 - Email");
-            System.out.println("6 - Address");
-            System.out.println("7 - City");
-            System.out.println("8 - Date of Birth");
-            System.out.println("9 - Social Security Number");
-            System.out.println("10 - Treating Doctor");
-            System.out.println("11 - Insurance Company");
-            System.out.println("12 - Insurance Coverage Percentage");
-            System.out.println("13 - See modified patient");
+
+            PatientModifyMenu.patientModifyMenu();
 
             int choice = sc.nextInt();
             sc.nextLine();

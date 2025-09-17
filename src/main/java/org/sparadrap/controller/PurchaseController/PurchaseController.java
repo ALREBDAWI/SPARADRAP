@@ -24,12 +24,9 @@ public class PurchaseController {
 
         int choice = sc.nextInt();
         sc.nextLine();
-        boolean on = true;
-        while (on){
             switch (choice){
                 case 0:
-                    on = false;
-                    break;
+                    return;
                 case 1: // purchase with prescription
                     System.out.println("Enter prescription ID:");
                     int prescriptionId = sc.nextInt();
@@ -108,6 +105,5 @@ public class PurchaseController {
                 default:
                     System.out.println("Invalid choice!");
             }
-        }
     }
 }

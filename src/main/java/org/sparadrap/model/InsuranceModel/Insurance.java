@@ -2,13 +2,18 @@ package org.sparadrap.model.InsuranceModel;
 
 import org.sparadrap.model.AbstractEntity;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 public class Insurance extends AbstractEntity {
     private String department;
+    private ArrayList<InsurancePlan> plans;
 
     // --------- constructor ---------
 
-    public Insurance(String name, String address, String postalCode, String city, String email, String telephone, String department) {
+    public Insurance(String name, String address, String postalCode, String city, String email, String telephone, String department, ArrayList<InsurancePlan> plans) {
         super(name, address, postalCode, city, email, telephone);
+        this.plans = plans;
         setDepartment(department);
 
     }
@@ -25,6 +30,14 @@ public class Insurance extends AbstractEntity {
         }else{
             throw  new IllegalArgumentException("Department is not valid");
         }
+    }
+
+    public ArrayList<InsurancePlan> getPlans() {
+        return this.plans;
+    }
+
+    public void addPlan(InsurancePlan plan) {
+        plans.add(plan);
     }
 
 

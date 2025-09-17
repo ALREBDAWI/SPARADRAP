@@ -2,9 +2,11 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
 import org.sparadrap.model.DoctorModel.Doctor;
 import org.sparadrap.model.InsuranceModel.Insurance;
+import org.sparadrap.model.InsuranceModel.InsurancePlan;
 import org.sparadrap.model.PatientModel.Patient;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -16,7 +18,7 @@ public class PatientTest {
     public void setup() {
         insurance = new Insurance(
                 "HealthPlus", "1 Health St", "5000", "CityX",
-                "contact@healthplus.com", "5555555555", "54"
+                "contact@healthplus.com", "5555555555", "54", new ArrayList<InsurancePlan>()
         );
 
         doctor = new Doctor(

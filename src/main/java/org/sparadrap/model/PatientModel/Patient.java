@@ -116,6 +116,7 @@ public class Patient extends AbstractEntity {
         sb.append(String.format("%-25s: %s%n", "Date of Birth", dateOfBirth));
 
         sb.append(String.format("%-25s: %s%n", "Treating Doctor", treatingDoctor.getFullName()));
+        sb.append(String.format("%-25s: %s%n", "Insurance company", insurance.getName()));
         sb.append(String.format("%-25s: %s%n", "Coverage percentage", getPercentage()));
 
         sb.append("----------------------------\n");

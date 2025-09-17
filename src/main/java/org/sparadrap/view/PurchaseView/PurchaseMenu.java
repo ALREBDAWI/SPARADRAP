@@ -19,7 +19,6 @@ public class PurchaseMenu {
                 System.out.println(ConsoleColors.CYAN_BOLD + "╠═════════════════════════════╣" + ConsoleColors.RESET);
                 System.out.println(ConsoleColors.CYAN_BOLD + "║ " + ConsoleColors.GREEN + "1. Create Purchase        " + ConsoleColors.CYAN_BOLD + "  ║" + ConsoleColors.RESET);
                 System.out.println(ConsoleColors.CYAN_BOLD + "║ " + ConsoleColors.GREEN + "2. Enter New Prescription " + ConsoleColors.CYAN_BOLD + "  ║" + ConsoleColors.RESET);
-                System.out.println(ConsoleColors.CYAN_BOLD + "║ " + ConsoleColors.GREEN + "3. Show Purchase History  " + ConsoleColors.CYAN_BOLD + "  ║" + ConsoleColors.RESET);
                 System.out.println(ConsoleColors.CYAN_BOLD + "║ " + ConsoleColors.RED + "0. Go Back To Main Menu   " + ConsoleColors.CYAN_BOLD + "  ║" + ConsoleColors.RESET);
                 System.out.println(ConsoleColors.CYAN_BOLD + "╚═════════════════════════════╝" + ConsoleColors.RESET);
                 System.out.print(ConsoleColors.YELLOW_BOLD + "👉 Enter choice: " + ConsoleColors.RESET);
