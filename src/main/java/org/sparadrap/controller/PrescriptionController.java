@@ -1,6 +1,14 @@
 package org.sparadrap.controller;
 
-import org.sparadrap.model.*;
+import org.sparadrap.model.DoctorModel.Doctor;
+import org.sparadrap.model.DoctorModel.DoctorsList;
+import org.sparadrap.model.MedicineModel.Medicine;
+import org.sparadrap.model.MedicineModel.MedicineList;
+import org.sparadrap.model.PatientModel.Patient;
+import org.sparadrap.model.PatientModel.PatientsList;
+import org.sparadrap.model.PurchaseModel.Prescription;
+import org.sparadrap.model.PurchaseModel.PrescriptionsList;
+import org.sparadrap.view.MedsListDisplay;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -34,28 +42,19 @@ public class PrescriptionController {
             return  null;
         }
 
+        // show all meds in stock with id
+        MedsListDisplay.medsListDisplay();
+
         System.out.println("how many medicines are in this prescription?");
         int medicinesInPrescription = sc.nextInt();
         sc.nextLine();
         ArrayList<Medicine> medicines = new ArrayList<>();
 
         for(int i=0;i < medicinesInPrescription;i++){
-            System.out.println("enter medicine number " + (i+1) + " :");
-            String medicineName = sc.nextLine();
-            boolean found = false;
-
-
-            for (Medicine m : MedicineList.getMedicineStockList().values()){
-                if(m.getMedicineName().equalsIgnoreCase(medicineName)){
-                    medicines.add(m);
-                    found = true;
-                    break;
-                }
-            }
-
-            if(!found){
-                System.out.println("medicine not found");
-            }
+            System.out.println("enter the id of medicine number " + (i+1) + " :");
+            int medicineId = sc.nextInt();
+            Medicine selectedMed = MedicineList.getMedicineById(medicineId);
+            medicines.add(selectedMed);
         }
 
         Prescription prescription = new Prescription(prescriptionDate, doctor, patient, medicines);

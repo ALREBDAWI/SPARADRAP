@@ -1,4 +1,8 @@
-package org.sparadrap.model;
+package org.sparadrap.model.PatientModel;
+
+import org.sparadrap.model.AbstractEntity;
+import org.sparadrap.model.DoctorModel.Doctor;
+import org.sparadrap.model.InsuranceModel.Insurance;
 
 import java.time.LocalDate;
 
@@ -95,15 +99,6 @@ public class Patient extends AbstractEntity {
 
     // ------------- print info ----------------
 
-    public void displayInfo() {
-            System.out.println("---- Patient Information ----");
-            System.out.printf("%-25s: %s%n", "Last Name", lastName);
-            displayCommonInfo();
-            System.out.printf("%-25s: %s%n", "Social Security Number", socialSecurityNumber);
-            System.out.printf("%-25s: %s%n", "Date of Birth", dateOfBirth);
-            System.out.printf("%-25s: %s%n", "Treating Doctor", treatingDoctor);
-            System.out.println("----------------------------");
-    }
 
     @Override
     public String toString() {
@@ -126,6 +121,5 @@ public class Patient extends AbstractEntity {
         sb.append("----------------------------\n");
         return sb.toString();
     }
-
 
 }

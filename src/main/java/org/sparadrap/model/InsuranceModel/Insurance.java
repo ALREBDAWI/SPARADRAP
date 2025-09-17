@@ -1,4 +1,6 @@
-package org.sparadrap.model;
+package org.sparadrap.model.InsuranceModel;
+
+import org.sparadrap.model.AbstractEntity;
 
 public class Insurance extends AbstractEntity {
     private String department;

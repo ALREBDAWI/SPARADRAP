@@ -1,12 +1,12 @@
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.sparadrap.model.Medicine;
+import org.sparadrap.model.MedicineModel.Medicine;
 
 import java.time.LocalDate;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThrows;
-import static org.sparadrap.model.MedicineCategory.PAINKILLER;
+import static org.sparadrap.model.MedicineModel.MedicineCategory.PAINKILLER;
 
 public class MedicinTest {
     private Medicine med;

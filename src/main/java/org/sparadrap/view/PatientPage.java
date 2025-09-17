@@ -1,9 +1,8 @@
 package org.sparadrap.view;
 
-import org.sparadrap.controller.PatientController;
-import org.sparadrap.controller.PatientDetailsController;
-import org.sparadrap.controller.PatientModifyController;
-import org.sparadrap.model.PatientsList;
+import org.sparadrap.controller.PatientController.PatientController;
+import org.sparadrap.controller.PatientController.PatientModifyController;
+import org.sparadrap.model.PatientModel.PatientsList;
 
 import java.util.Scanner;
 
@@ -15,17 +14,17 @@ public class PatientPage {
 
         while (on) {
 
-            System.out.println("\n===========================================");
-            System.out.println("               ️ PATIENT MENU              ");
-            System.out.println("===========================================");
-            System.out.println(" 0. Exit");
-            System.out.println(" 1. See All Patients");
-            System.out.println(" 2. View Patient Details");
-            System.out.println(" 3. Add New Patient");
-            System.out.println(" 4. Update Patient");
-            System.out.println(" 5. Delete Patient");
-            System.out.println("===========================================");
-            System.out.print(">>> Enter your choice: ");
+                System.out.println("\n" + ConsoleColors.CYAN_BOLD + "╔═══════════════════════════════════╗" + ConsoleColors.RESET);
+                System.out.println(ConsoleColors.CYAN_BOLD + "║ " + ConsoleColors.YELLOW_BOLD + "          PATIENT MENU" + ConsoleColors.CYAN_BOLD + "            ║" + ConsoleColors.RESET);
+                System.out.println(ConsoleColors.CYAN_BOLD + "╠═══════════════════════════════════╣" + ConsoleColors.RESET);
+                System.out.println(ConsoleColors.CYAN_BOLD + "║ " + ConsoleColors.GREEN + "1. See All Patients               " + ConsoleColors.CYAN_BOLD + "║" + ConsoleColors.RESET);
+                System.out.println(ConsoleColors.CYAN_BOLD + "║ " + ConsoleColors.GREEN + "2. View Patient Details           " + ConsoleColors.CYAN_BOLD + "║" + ConsoleColors.RESET);
+                System.out.println(ConsoleColors.CYAN_BOLD + "║ " + ConsoleColors.GREEN + "3. Add New Patient                " + ConsoleColors.CYAN_BOLD + "║" + ConsoleColors.RESET);
+                System.out.println(ConsoleColors.CYAN_BOLD + "║ " + ConsoleColors.GREEN + "4. Update Patient                 " + ConsoleColors.CYAN_BOLD + "║" + ConsoleColors.RESET);
+                System.out.println(ConsoleColors.CYAN_BOLD + "║ " + ConsoleColors.GREEN + "5. Delete Patient                 " + ConsoleColors.CYAN_BOLD + "║" + ConsoleColors.RESET);
+                System.out.println(ConsoleColors.CYAN_BOLD + "║ " + ConsoleColors.RED_BOLD + "0. Exit                           " + ConsoleColors.CYAN_BOLD + "║" + ConsoleColors.RESET);
+                System.out.println(ConsoleColors.CYAN_BOLD + "╚═══════════════════════════════════╝" + ConsoleColors.RESET);
+                System.out.print(ConsoleColors.YELLOW_BOLD + ">>> Enter your choice: " + ConsoleColors.RESET);
 
             int choice = sc.nextInt();
             int id;

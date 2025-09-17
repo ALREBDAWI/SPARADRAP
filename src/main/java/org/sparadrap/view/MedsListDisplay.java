@@ -1,7 +1,7 @@
 package org.sparadrap.view;
 
-import org.sparadrap.model.Medicine;
-import org.sparadrap.model.MedicineList;
+import org.sparadrap.model.MedicineModel.Medicine;
+import org.sparadrap.model.MedicineModel.MedicineList;
 
 import java.util.Map;
 

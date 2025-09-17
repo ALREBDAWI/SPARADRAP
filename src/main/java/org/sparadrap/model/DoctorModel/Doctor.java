@@ -1,4 +1,6 @@
-package org.sparadrap.model;
+package org.sparadrap.model.DoctorModel;
+
+import org.sparadrap.model.AbstractEntity;
 
 public class Doctor extends AbstractEntity {
     private  String lastName;

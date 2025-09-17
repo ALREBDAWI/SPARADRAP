@@ -1,4 +1,4 @@
-package org.sparadrap.model;
+package org.sparadrap.model.PatientModel;
 
 import java.util.HashMap;
 

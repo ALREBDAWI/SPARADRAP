@@ -1,8 +1,8 @@
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
-import org.sparadrap.model.Doctor;
-import org.sparadrap.model.Insurance;
-import org.sparadrap.model.Patient;
+import org.sparadrap.model.DoctorModel.Doctor;
+import org.sparadrap.model.InsuranceModel.Insurance;
+import org.sparadrap.model.PatientModel.Patient;
 
 import java.time.LocalDate;
 

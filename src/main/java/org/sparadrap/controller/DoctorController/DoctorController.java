@@ -1,10 +1,8 @@
-package org.sparadrap.controller;
+package org.sparadrap.controller.DoctorController;
 
-import org.sparadrap.model.Doctor;
-import org.sparadrap.model.DoctorsList;
-import org.sparadrap.model.DummyData.DummyData;
+import org.sparadrap.model.DoctorModel.Doctor;
+import org.sparadrap.model.DoctorModel.DoctorsList;
 
-import java.time.LocalDate;
 import java.util.Scanner;
 
 public class DoctorController {

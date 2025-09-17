@@ -1,7 +1,6 @@
-package org.sparadrap.controller;
+package org.sparadrap.controller.DoctorController;
 
-import org.sparadrap.model.DoctorsList;
-import org.sparadrap.model.DummyData.DummyData;
+import org.sparadrap.model.DoctorModel.DoctorsList;
 
 import java.util.Scanner;
 

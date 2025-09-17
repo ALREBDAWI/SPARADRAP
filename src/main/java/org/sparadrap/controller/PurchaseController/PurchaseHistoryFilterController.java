@@ -1,9 +1,7 @@
-package org.sparadrap.controller;
+package org.sparadrap.controller.PurchaseController;
 
-import org.sparadrap.model.DummyData.DummyData;
-import org.sparadrap.model.Purchase;
-import org.sparadrap.model.PurchaseList;
-import org.sparadrap.view.PrintPurchaseTable;
+import org.sparadrap.model.PurchaseModel.Purchase;
+import org.sparadrap.model.PurchaseModel.PurchaseList;
 
 import java.time.LocalDate;
 import java.util.HashMap;

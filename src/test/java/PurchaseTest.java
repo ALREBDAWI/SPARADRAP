@@ -1,10 +1,15 @@
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.sparadrap.model.*;
+import org.sparadrap.model.DoctorModel.Doctor;
+import org.sparadrap.model.InsuranceModel.Insurance;
+import org.sparadrap.model.MedicineModel.Medicine;
+import org.sparadrap.model.MedicineModel.MedicineCategory;
+import org.sparadrap.model.PatientModel.Patient;
+import org.sparadrap.model.PurchaseModel.Prescription;
+import org.sparadrap.model.PurchaseModel.Purchase;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.List;
 
 import static org.junit.Assert.*;
 

@@ -1,4 +1,8 @@
-package org.sparadrap.model;
+package org.sparadrap.model.PurchaseModel;
+
+import org.sparadrap.model.DoctorModel.Doctor;
+import org.sparadrap.model.MedicineModel.Medicine;
+import org.sparadrap.model.PatientModel.Patient;
 
 import java.time.LocalDate;
 import java.util.ArrayList;

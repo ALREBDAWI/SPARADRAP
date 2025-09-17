@@ -1,6 +1,6 @@
-package org.sparadrap.view;
+package org.sparadrap.view.PurchaseView;
 
-import org.sparadrap.controller.PurchaseHistoryFilterController;
+import org.sparadrap.controller.PurchaseController.PurchaseHistoryFilterController;
 
 import java.util.Scanner;
 

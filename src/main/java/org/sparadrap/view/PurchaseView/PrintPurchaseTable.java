@@ -1,6 +1,6 @@
-package org.sparadrap.view;
+package org.sparadrap.view.PurchaseView;
 
-import org.sparadrap.model.Purchase;
+import org.sparadrap.model.PurchaseModel.Purchase;
 
 import java.util.Map;
 

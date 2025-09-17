@@ -1,4 +1,4 @@
-package org.sparadrap.model;
+package org.sparadrap.model.InsuranceModel;
 
 import java.util.HashMap;
 import java.util.Map;

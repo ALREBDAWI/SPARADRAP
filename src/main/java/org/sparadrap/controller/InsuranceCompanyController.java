@@ -1,8 +1,7 @@
 package org.sparadrap.controller;
 
-import org.sparadrap.model.DummyData.DummyData;
-import org.sparadrap.model.Insurance;
-import org.sparadrap.model.InsuranceCompaniesList;
+import org.sparadrap.model.InsuranceModel.Insurance;
+import org.sparadrap.model.InsuranceModel.InsuranceCompaniesList;
 
 import java.util.Scanner;
 

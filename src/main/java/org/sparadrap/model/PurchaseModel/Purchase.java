@@ -1,4 +1,6 @@
-package org.sparadrap.model;
+package org.sparadrap.model.PurchaseModel;
+
+import org.sparadrap.model.MedicineModel.Medicine;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -11,9 +13,11 @@ public class Purchase {
     private LocalDate purchaseDate;
     private List<Medicine> purchasedMeds;
 
+    // ----------------------------------
+    // --------- constructors ----------
+    // ----------------------------------
 
-    // --------- constructor -----------
-
+    // constructor for purchases with prescription
     public Purchase(Prescription prescription, LocalDate purchaseDate, List<Medicine> PurchasedMeds) {
         this.isWithPrescription = true ;
         setPrescription(prescription);
@@ -21,6 +25,7 @@ public class Purchase {
         setPurchasedMeds(PurchasedMeds);
     }
 
+    // constructor without prescription
     public Purchase(LocalDate purchaseDate, List<Medicine> PurchasedMeds) {
         this.isWithPrescription = false;
         this.prescription = null;
@@ -28,7 +33,9 @@ public class Purchase {
         setPurchasedMeds(PurchasedMeds);
     }
 
-    // --------- getters and setters ----------
+    // =======================================
+    // --------- getters and setters --------
+    // =======================================
 
     public boolean getIsWithPrescription() {
         return this.isWithPrescription;
@@ -53,6 +60,7 @@ public class Purchase {
         }
         this.purchaseDate = purchaseDate;
     }
+
     public List<Medicine> getPurchasedMeds() {
         return this.purchasedMeds;
     }
@@ -79,6 +87,10 @@ public class Purchase {
         totalAfterInsurance = getTotalPrice() - (getTotalPrice() * percentage / 100f) ;
         return  totalAfterInsurance;
     }
+
+    // ----------------------------------------------
+    // -------- override and print all details -----
+    // ----------------------------------------------
 
     @Override
     public String toString() {

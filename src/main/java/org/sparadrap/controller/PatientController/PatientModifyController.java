@@ -1,7 +1,11 @@
-package org.sparadrap.controller;
+package org.sparadrap.controller.PatientController;
 
-import org.sparadrap.model.*;
-import org.sparadrap.model.DummyData.DummyData;
+import org.sparadrap.model.DoctorModel.Doctor;
+import org.sparadrap.model.DoctorModel.DoctorsList;
+import org.sparadrap.model.InsuranceModel.Insurance;
+import org.sparadrap.model.InsuranceModel.InsuranceCompaniesList;
+import org.sparadrap.model.PatientModel.Patient;
+import org.sparadrap.model.PatientModel.PatientsList;
 
 import java.time.LocalDate;
 import java.util.Scanner;

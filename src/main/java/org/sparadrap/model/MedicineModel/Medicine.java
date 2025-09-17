@@ -1,4 +1,4 @@
-package org.sparadrap.model;
+package org.sparadrap.model.MedicineModel;
 
 import java.time.LocalDate;
 

@@ -1,6 +1,18 @@
 package org.sparadrap.model.DummyData;
 
-import org.sparadrap.model.*;
+import org.sparadrap.model.DoctorModel.Doctor;
+import org.sparadrap.model.DoctorModel.DoctorsList;
+import org.sparadrap.model.InsuranceModel.Insurance;
+import org.sparadrap.model.InsuranceModel.InsuranceCompaniesList;
+import org.sparadrap.model.MedicineModel.Medicine;
+import org.sparadrap.model.MedicineModel.MedicineCategory;
+import org.sparadrap.model.MedicineModel.MedicineList;
+import org.sparadrap.model.PatientModel.Patient;
+import org.sparadrap.model.PatientModel.PatientsList;
+import org.sparadrap.model.PurchaseModel.Prescription;
+import org.sparadrap.model.PurchaseModel.PrescriptionsList;
+import org.sparadrap.model.PurchaseModel.Purchase;
+import org.sparadrap.model.PurchaseModel.PurchaseList;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -47,7 +59,6 @@ public class DummyData {
                 InsuranceCompaniesList.addInsurance(insurance3);
 
 
-
 // -------------------- Patients dummy data -----------------------
 
         List<Patient> patients = List.of(
@@ -72,7 +83,8 @@ public class DummyData {
                 new Patient("Isabella", "55 Aspen St", "1100", "CityG", "isabella@example.com", "1010101010",
                         "1471591239514", "Thomas", LocalDate.of(1996, 1, 22), doctors.get(1), insurance1, 10)
         );
-        patients.forEach(patient -> {PatientsList.addPatient(patient);});
+        patients.forEach(patient -> {
+            PatientsList.addPatient(patient);});
 
 // ---------------- Medicines dummy data ----------------------
 
@@ -121,7 +133,8 @@ public class DummyData {
                         new ArrayList<>(List.of(med1))
                 )
         );
-        prescriptions.forEach(prescription -> {PrescriptionsList.addPrescription(prescription);});
+        prescriptions.forEach(prescription -> {
+            PrescriptionsList.addPrescription(prescription);});
 
         // ----------------- Purchases dummy data -------------------
 

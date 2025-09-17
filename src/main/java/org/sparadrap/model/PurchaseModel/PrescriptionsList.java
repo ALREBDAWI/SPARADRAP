@@ -1,10 +1,6 @@
-package org.sparadrap.model;
+package org.sparadrap.model.PurchaseModel;
 
-import org.sparadrap.model.DummyData.DummyData;
-
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 public class PrescriptionsList {
 

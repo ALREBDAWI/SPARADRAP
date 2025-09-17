@@ -1,6 +1,5 @@
-package org.sparadrap.model;
+package org.sparadrap.model.DoctorModel;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 public class DoctorsList {
