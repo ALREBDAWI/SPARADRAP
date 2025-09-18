@@ -11,8 +11,27 @@ import org.sparadrap.view.PatientModifyMenu;
 import java.time.LocalDate;
 import java.util.Scanner;
 
+/**
+ * Controller class to handle modification of existing patient data.
+ * Provides a menu-driven interface for updating patient details.
+ */
 public class PatientModifyController {
-
+    /**
+     * Prompts the user to select a patient by ID, then allows modification
+     * of all patient fields including:
+     * <ul>
+     *     <li>First and Last Name</li>
+     *     <li>Address, Postal Code, City</li>
+     *     <li>Email and Phone Number</li>
+     *     <li>Date of Birth</li>
+     *     <li>Social Security Number</li>
+     *     <li>Treating Doctor</li>
+     *     <li>Insurance Company and Coverage Percentage</li>
+     * </ul>
+     *
+     * <p>The function updates the {@link Patient} object in {@link PatientsList} directly.
+     * Displays the updated patient information upon request.
+     */
     public static void patientModifyController() {
         Scanner sc = new Scanner(System.in);
 
@@ -28,11 +47,6 @@ public class PatientModifyController {
 
         boolean on = true;
         while (on) {
-            System.out.println(
-               "\n---- Patient Modification Menu ----\n" +
-               "Selected Patient: " + patient.getFullName() + "\n" +
-               "Choose what you want to modify (enter 0 to exit):"
-            );
 
             PatientModifyMenu.patientModifyMenu();
 
@@ -150,8 +164,5 @@ public class PatientModifyController {
                     System.out.println("Invalid choice, please try again.");
             }
         }
-
-        System.out.println("\nFinal patient details:");
-        System.out.println(patient);
     }
 }

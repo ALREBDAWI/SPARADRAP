@@ -2,8 +2,8 @@ package org.sparadrap.controller.PurchaseController;
 
 import org.sparadrap.model.MedicineModel.Medicine;
 import org.sparadrap.model.MedicineModel.MedicineList;
-import org.sparadrap.model.PurchaseModel.Prescription;
-import org.sparadrap.model.PurchaseModel.PrescriptionsList;
+import org.sparadrap.model.PrescriptionModel.Prescription;
+import org.sparadrap.model.PrescriptionModel.PrescriptionsList;
 import org.sparadrap.model.PurchaseModel.Purchase;
 import org.sparadrap.model.PurchaseModel.PurchaseList;
 import org.sparadrap.view.MedsListDisplay;
@@ -12,8 +12,25 @@ import org.sparadrap.view.PurchaseControllerChoiceMenu;
 import java.time.LocalDate;
 import java.util.*;
 
+/**
+ * Controller class to handle purchases of medicines.
+ * Provides functionality for creating purchases with or without a prescription.
+ */
 public class PurchaseController {
 
+    /**
+     * Handles the process of creating a purchase.
+     * <p>
+     * The user can choose between two types of purchase:
+     * <ul>
+     *     <li>With prescription: Uses medicines listed in a prescription.</li>
+     *     <li>Without prescription: Allows selecting medicines from stock,
+     *     excluding those that require a prescription.</li>
+     * </ul>
+     * <p>
+     * Validates medicine availability, updates stock, creates a {@link Purchase} object,
+     * and adds it to {@link PurchaseList}.
+     */
     public static void CreatePurchase(){
         Scanner sc = new Scanner(System.in);
         LocalDate purchaseDate =  LocalDate.now();

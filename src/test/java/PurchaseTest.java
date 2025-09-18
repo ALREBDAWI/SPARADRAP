@@ -6,7 +6,7 @@ import org.sparadrap.model.InsuranceModel.InsurancePlan;
 import org.sparadrap.model.MedicineModel.Medicine;
 import org.sparadrap.model.MedicineModel.MedicineCategory;
 import org.sparadrap.model.PatientModel.Patient;
-import org.sparadrap.model.PurchaseModel.Prescription;
+import org.sparadrap.model.PrescriptionModel.Prescription;
 import org.sparadrap.model.PurchaseModel.Purchase;
 
 import java.time.LocalDate;

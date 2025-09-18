@@ -10,8 +10,8 @@ import org.sparadrap.model.MedicineModel.MedicineCategory;
 import org.sparadrap.model.MedicineModel.MedicineList;
 import org.sparadrap.model.PatientModel.Patient;
 import org.sparadrap.model.PatientModel.PatientsList;
-import org.sparadrap.model.PurchaseModel.Prescription;
-import org.sparadrap.model.PurchaseModel.PrescriptionsList;
+import org.sparadrap.model.PrescriptionModel.Prescription;
+import org.sparadrap.model.PrescriptionModel.PrescriptionsList;
 import org.sparadrap.model.PurchaseModel.Purchase;
 import org.sparadrap.model.PurchaseModel.PurchaseList;
 

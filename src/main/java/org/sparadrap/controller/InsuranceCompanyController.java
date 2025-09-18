@@ -10,7 +10,20 @@ import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+/**
+ * Controller for adding new insurance companies.
+ * Prompts the user for company details and plans, then creates and stores a new {@link Insurance}.
+ */
 public class InsuranceCompanyController {
+
+    /**
+     * Prompts the user to enter details of an insurance company:
+     * <ul>
+     *     <li>Name, Postal Code, Phone Number, Email, Address, City, Department</li>
+     *     <li>Select insurance plans (STANDARD, PREMIUM, ULTRA)</li>
+     * </ul>
+     * Creates a new {@link Insurance} object and adds it to {@link InsuranceCompaniesList}.
+     */
     public static void insuranceCompanyController(){
 
         Scanner sc = new Scanner(System.in);
@@ -54,12 +67,6 @@ public class InsuranceCompanyController {
 
         Insurance insurance = new Insurance(name,address,postalCode,city,email,phoneNumber,department, plans);
         InsuranceCompaniesList.addInsurance(insurance);
-
-    }
-
-    public static void main(String[] args) {
-        insuranceCompanyController();
-        System.out.println(InsuranceCompaniesList.getInsuranceCompaniesList());
 
     }
 }

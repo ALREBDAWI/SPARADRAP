@@ -5,6 +5,10 @@ import java.util.Scanner;
 public class PatientModifyMenu {
     public static void patientModifyMenu(){
 
+        System.out.println("\n╔════════════════════════════════════╗");
+        System.out.println("  Choose what you want to modify");
+        System.out.println(ConsoleColors.RED_BOLD +"  (0 to exit):" +  ConsoleColors.RESET);
+        System.out.println("╚════════════════════════════════════╝");
         String[] options = {
                 "0 - Go Back",
                 "1 - First Name",

@@ -1,0 +1,16 @@
+unnamed package
+org.sparadrap
+org.sparadrap.controller
+org.sparadrap.controller.DoctorController
+org.sparadrap.controller.PatientController
+org.sparadrap.controller.PurchaseController
+org.sparadrap.model
+org.sparadrap.model.DoctorModel
+org.sparadrap.model.DummyData
+org.sparadrap.model.InsuranceModel
+org.sparadrap.model.MedicineModel
+org.sparadrap.model.PatientModel
+org.sparadrap.model.PrescriptionModel
+org.sparadrap.model.PurchaseModel
+org.sparadrap.view
+org.sparadrap.view.PurchaseView

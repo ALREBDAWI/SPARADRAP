@@ -1,5 +1,10 @@
 package org.sparadrap.model;
 
+/**
+ * Abstract base class for all entities in the system.
+ * Provides common attributes: name, address, postal code, city, email, and telephone.
+ * All setters include validation to ensure correct data format.
+ */
 public abstract class AbstractEntity {
     private String name;
     private String address;
@@ -10,6 +15,17 @@ public abstract class AbstractEntity {
 
     // ---------- constructor -------
 
+    /**
+     * Creates a new AbstractEntity with all common attributes.
+     *
+     * @param name Name of the entity
+     * @param address Address of the entity
+     * @param postalCode Postal code
+     * @param city City name
+     * @param email Email address
+     * @param telephone Telephone number
+     * @throws IllegalArgumentException if any field is invalid
+     */
     public  AbstractEntity(String name, String address, String postalCode, String city, String email, String telephone) {
         setName(name);
         setAddress(address);
@@ -93,12 +109,4 @@ public abstract class AbstractEntity {
         }
     }
 
-    protected void displayCommonInfo() {
-        System.out.printf("%-25s: %s%n", "Name", name);
-        System.out.printf("%-25s: %s%n", "Address", address);
-        System.out.printf("%-25s: %s%n", "Postal Code", postalCode);
-        System.out.printf("%-25s: %s%n", "City", city);
-        System.out.printf("%-25s: %s%n", "Email", email);
-        System.out.printf("%-25s: %s%n", "Telephone", telephone);
-    }
 }

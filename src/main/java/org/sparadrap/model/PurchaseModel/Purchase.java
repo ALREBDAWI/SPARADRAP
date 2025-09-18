@@ -1,11 +1,16 @@
 package org.sparadrap.model.PurchaseModel;
 
 import org.sparadrap.model.MedicineModel.Medicine;
+import org.sparadrap.model.PrescriptionModel.Prescription;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Represents a purchase of medicines.
+ * Can be associated with a prescription or be a direct purchase without one.
+ */
 public class Purchase {
 
     private final boolean isWithPrescription;
@@ -17,20 +22,31 @@ public class Purchase {
     // --------- constructors ----------
     // ----------------------------------
 
-    // constructor for purchases with prescription
-    public Purchase(Prescription prescription, LocalDate purchaseDate, List<Medicine> PurchasedMeds) {
+    /**
+     * Creates a purchase with a prescription.
+     *
+     * @param prescription Prescription object (cannot be null)
+     * @param purchaseDate Date of purchase (cannot be in the future)
+     * @param purchasedMeds List of medicines (cannot be null or empty)
+     */
+    public Purchase(Prescription prescription, LocalDate purchaseDate, List<Medicine> purchasedMeds) {
         this.isWithPrescription = true ;
         setPrescription(prescription);
         setPurchaseDate(purchaseDate);
-        setPurchasedMeds(PurchasedMeds);
+        setPurchasedMeds(purchasedMeds);
     }
 
-    // constructor without prescription
-    public Purchase(LocalDate purchaseDate, List<Medicine> PurchasedMeds) {
+    /**
+     * Creates a purchase without a prescription.
+     *
+     * @param purchaseDate Date of purchase (cannot be in the future)
+     * @param purchasedMeds List of medicines (cannot be null or empty)
+     */
+    public Purchase(LocalDate purchaseDate, List<Medicine> purchasedMeds) {
         this.isWithPrescription = false;
         this.prescription = null;
         setPurchaseDate(purchaseDate);
-        setPurchasedMeds(PurchasedMeds);
+        setPurchasedMeds(purchasedMeds);
     }
 
     // =======================================
@@ -72,7 +88,13 @@ public class Purchase {
         this.purchasedMeds = new ArrayList<>(purchasedMeds);
     }
 
+    // ----------------- Price Calculations -----------------
 
+    /**
+     * Calculates the total price of all purchased medicines.
+     *
+     * @return Total price
+     */
     public float getTotalPrice() {
             float total = 0;
         for (Medicine medicine : purchasedMeds) {
@@ -81,6 +103,12 @@ public class Purchase {
         return total;
     }
 
+    /**
+     * Calculates the price after applying patient's insurance coverage.
+     *
+     * @return Price after insurance deduction
+     * @throws IllegalStateException if purchase is not linked to a prescription
+     */
     public float getPriceAfterInsurance() {
         float totalAfterInsurance = 0;
         int percentage = prescription.getPatient().getPercentage();
@@ -89,9 +117,12 @@ public class Purchase {
     }
 
     // ----------------------------------------------
-    // -------- override and print all details -----
+    // ---------------- Display Info ----------------
     // ----------------------------------------------
 
+    /**
+     * Returns a formatted string containing all purchase details.
+     */
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();

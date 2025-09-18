@@ -6,11 +6,10 @@ import org.sparadrap.model.InsuranceModel.InsurancePlan;
 import org.sparadrap.model.MedicineModel.Medicine;
 import org.sparadrap.model.MedicineModel.MedicineCategory;
 import org.sparadrap.model.PatientModel.Patient;
-import org.sparadrap.model.PurchaseModel.Prescription;
+import org.sparadrap.model.PrescriptionModel.Prescription;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;

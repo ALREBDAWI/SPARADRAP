@@ -8,8 +8,17 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
+/**
+ * Controller class to filter purchase history based on date criteria.
+ * Provides methods to filter purchases for today, last week, or between two specified dates.
+ */
 public class PurchaseHistoryFilterController {
 
+        /**
+         * Filters the purchases made today.
+         *
+         * @return a map of purchase IDs to {@link Purchase} objects that were made today
+         */
         public static Map<Integer,Purchase> toDayFilter() {
 
             Map<Integer, Purchase> filteredList = new HashMap<>();
@@ -22,6 +31,11 @@ public class PurchaseHistoryFilterController {
             return filteredList;
         }
 
+        /**
+         * Filters the purchases made in the last 7 days, including today.
+         *
+         * @return a map of purchase IDs to {@link Purchase} objects made in the last week
+         */
         public static Map<Integer,Purchase> lastWeekFilter() {
             LocalDate sevenDaysAgo = LocalDate.now().minusDays(7);
             Map<Integer, Purchase> filteredList = new  HashMap<>();
@@ -40,6 +54,12 @@ public class PurchaseHistoryFilterController {
             return filteredList;
         }
 
+        /**
+         * Filters purchases between two user-specified dates (inclusive).
+         * Prompts the user to input the start and end dates.
+         *
+         * @return a map of purchase IDs to {@link Purchase} objects within the specified date range
+         */
         public static Map<Integer,Purchase> betweenTwoDatesFilter() {
             Scanner sc = new Scanner(System.in);
             System.out.println("Enter start date (yyyy-MM-dd):");
