@@ -7,6 +7,7 @@ import org.sparadrap.model.PrescriptionModel.PrescriptionsList;
 import org.sparadrap.model.PurchaseModel.Purchase;
 import org.sparadrap.model.PurchaseModel.PurchaseList;
 import org.sparadrap.view.MedsListDisplay;
+import org.sparadrap.view.PrescriptionsView;
 import org.sparadrap.view.PurchaseControllerChoiceMenu;
 
 import java.time.LocalDate;
@@ -45,6 +46,8 @@ public class PurchaseController {
                 case 0:
                     return;
                 case 1: // purchase with prescription
+                    // print prescriptions list with ID
+                    PrescriptionsView.displayPrescriptionsCompact(PrescriptionsList.getPrescriptions());
                     System.out.println("Enter prescription ID:");
                     int prescriptionId = sc.nextInt();
                     sc.nextLine();

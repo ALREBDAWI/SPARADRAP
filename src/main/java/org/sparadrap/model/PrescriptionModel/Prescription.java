@@ -3,6 +3,7 @@ package org.sparadrap.model.PrescriptionModel;
 import org.sparadrap.model.DoctorModel.Doctor;
 import org.sparadrap.model.MedicineModel.Medicine;
 import org.sparadrap.model.PatientModel.Patient;
+import org.sparadrap.view.ConsoleColors;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -93,13 +94,29 @@ public class Prescription {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append(" ---- Prescription Information ----\n");
-        sb.append(String.format("%-25s: %s%n", "Date", prescriptionDate));
-        sb.append(String.format("%-25s: %s%n", "Treating Doctor", treatingDoctor.getFullName()));
-        sb.append(String.format("%-25s: %s%n", "Patient", patient.getFullName()));
-        sb.append(String.format("%-25s: %s%n", "Coverage percentage", patient.getPercentage()));
-        sb.append(String.format("%-25s: %s%n", "Medicine List", getMedicineList()));
-        sb.append("--------------------------------\n");
+
+        sb.append(ConsoleColors.CYAN_BOLD).append(" ---- Prescription Information ----\n").append(ConsoleColors.RESET);
+        sb.append(String.format("%-25s: %s%n", ConsoleColors.CYAN_BOLD + "Date" + ConsoleColors.RESET, ConsoleColors.WHITE_BOLD + prescriptionDate + ConsoleColors.RESET));
+        sb.append(String.format("%-25s: %s%n", ConsoleColors.CYAN_BOLD + "Treating Doctor" + ConsoleColors.RESET, ConsoleColors.WHITE_BOLD + treatingDoctor.getFullName() + ConsoleColors.RESET));
+        sb.append(String.format("%-25s: %s%n", ConsoleColors.CYAN_BOLD + "Patient" + ConsoleColors.RESET, ConsoleColors.WHITE_BOLD + patient.getFullName() + ConsoleColors.RESET));
+        sb.append(String.format("%-25s: %s%n", ConsoleColors.CYAN_BOLD + "Coverage percentage" + ConsoleColors.RESET, ConsoleColors.WHITE_BOLD + patient.getPercentage() + "%" + ConsoleColors.RESET));
+
+        sb.append(ConsoleColors.CYAN_BOLD).append(" Medicines List:").append(ConsoleColors.RESET).append("\n");
+
+        for (Medicine medicine : getMedicineList()) {
+            String prescriptionText = medicine.isWithPrescription() ? ConsoleColors.RED_BOLD + "Yes" : ConsoleColors.WHITE_BOLD + "No";
+            sb.append(String.format("  %s- %s%s | %s%s%s | Price: %s%.2f%s | Prescription: %s%n",
+                    ConsoleColors.GREEN_BOLD, medicine.getMedicineName(), ConsoleColors.RESET,
+                    ConsoleColors.YELLOW_BOLD, medicine.getCategory(), ConsoleColors.RESET,
+                    ConsoleColors.BLUE, medicine.getPrice(), ConsoleColors.RESET,
+                    prescriptionText
+            ));
+        }
+
+        sb.append(ConsoleColors.CYAN_BOLD).append("--------------------------------\n").append(ConsoleColors.RESET);
         return sb.toString();
     }
+
+
+
 }
