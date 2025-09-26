@@ -17,8 +17,9 @@ public class MainPage {
                 System.out.println(ConsoleColors.BLUE_BOLD + "╠════════════════════════════════════╣" + ConsoleColors.RESET);
                 System.out.println(ConsoleColors.BLUE_BOLD + "║ " + ConsoleColors.CYAN_BOLD + "1. New Purchase              " + ConsoleColors.BLUE_BOLD + "      ║" + ConsoleColors.RESET);
                 System.out.println(ConsoleColors.BLUE_BOLD + "║ " + ConsoleColors.CYAN_BOLD + "2. Purchase History          " + ConsoleColors.BLUE_BOLD + "      ║" + ConsoleColors.RESET);
-                System.out.println(ConsoleColors.BLUE_BOLD + "║ " + ConsoleColors.CYAN_BOLD + "3. Patients Page             " + ConsoleColors.BLUE_BOLD + "      ║" + ConsoleColors.RESET);
-                System.out.println(ConsoleColors.BLUE_BOLD + "╠════════════════════════════════════╣" + ConsoleColors.RESET);
+                System.out.println(ConsoleColors.BLUE_BOLD + "║ " + ConsoleColors.CYAN_BOLD + "3. Patients Menu             " + ConsoleColors.BLUE_BOLD + "      ║" + ConsoleColors.RESET);
+                System.out.println(ConsoleColors.BLUE_BOLD + "║ " + ConsoleColors.CYAN_BOLD + "4. Prescriptions Menu             " + ConsoleColors.BLUE_BOLD + " ║" + ConsoleColors.RESET);
+            System.out.println(ConsoleColors.BLUE_BOLD + "╠════════════════════════════════════╣" + ConsoleColors.RESET);
                 System.out.println(ConsoleColors.BLUE_BOLD + "║ " + ConsoleColors.RED_BOLD + "0. Exit Program              " + ConsoleColors.BLUE_BOLD + "      ║" + ConsoleColors.RESET);
                 System.out.println(ConsoleColors.BLUE_BOLD + "╚════════════════════════════════════╝" + ConsoleColors.RESET);
                 System.out.print(ConsoleColors.YELLOW_BOLD + "👉 Enter choice: " + ConsoleColors.RESET);
@@ -37,6 +38,9 @@ public class MainPage {
                         break;
                     case 3:
                         PatientPage.patientDetails();
+                        break;
+                    case 4:
+                        PrescriptionsMenu.prescriptionsMenu();
                         break;
                     default:
                         System.out.println("Invalid choice, please inter a number between 0 and 3 !");

@@ -35,10 +35,10 @@ public class PrescriptionsList {
     /**
      * Removes a prescription from the collection.
      *
-     * @param prescription Prescription object to remove
+     * @param id Prescription object to remove
      */
-    public static void removePrescription(Prescription prescription) {
-        prescriptionsList.remove(prescription);
+    public static void removePrescription(int id) {
+        prescriptionsList.remove(id);
     }
 
 }
