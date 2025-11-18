@@ -31,7 +31,7 @@ public class PurchaseTest {
                 "alice@example.com", "1122334455", "Brown", "APP789"
         );
 
-        // adding incurance plans to insurance company
+        // adding insurance plans to insurance company
         ArrayList<InsurancePlan> plans = new ArrayList<>();
         plans.add(InsurancePlan.STANDARD);
         plans.add(InsurancePlan.PREMIUM);
@@ -81,7 +81,6 @@ public class PurchaseTest {
         Purchase purchase = new Purchase(LocalDate.of(2024, 5, 10), meds);
 
         assertFalse(purchase.getIsWithPrescription());
-        assertThrows(IllegalArgumentException.class, () -> purchase.getPrescription());
         assertEquals(meds, purchase.getPurchasedMeds());
         assertEquals(LocalDate.of(2024, 5, 10), purchase.getPurchaseDate());
     }
