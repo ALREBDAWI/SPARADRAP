@@ -1,7 +1,10 @@
 package org.sparadrap;
 
+import org.sparadrap.connection.DBconnection;
 import org.sparadrap.model.DummyData.DummyData;
 import org.sparadrap.view.MainPage;
+
+import java.sql.SQLException;
 
 /**
  * Main class - entry point of the application.
@@ -18,9 +21,10 @@ public class Main {
      *
      * @param args command-line arguments (not used)
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
 
         DummyData.dummyData();
         MainPage.menu();
+
     }
 }

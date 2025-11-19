@@ -7,6 +7,7 @@ import java.time.LocalDate;
  * Contains details such as name, category, price, start date, quantity, and prescription requirement.
  */
 public class Medicine {
+    private int id;
     private String medicineName;
     private MedicineCategory category;
     private double price;
@@ -41,6 +42,10 @@ public class Medicine {
     // =================================================
     // -------------- getters and setters --------------
     // =================================================
+
+    public int getId() {
+        return this.id;
+    }
 
     public String getMedicineName() {
         return this.medicineName;

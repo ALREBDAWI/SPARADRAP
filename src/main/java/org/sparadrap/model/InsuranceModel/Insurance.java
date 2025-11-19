@@ -11,6 +11,7 @@ import java.util.ArrayList;
  * - a list of insurance plans
  */
 public class Insurance extends AbstractEntity {
+    private int id;
     private String department;
 
     /** List of insurance plans associated with this company */
@@ -42,6 +43,10 @@ public class Insurance extends AbstractEntity {
     // =========================================
     // ---------- Getters and Setters ----------
     // =========================================
+
+    public int getId() {
+        return this.id;
+    }
 
     /**
      * Returns the department code of the insurance company.

@@ -10,6 +10,7 @@ import org.sparadrap.model.AbstractEntity;
  */
 public class Doctor extends AbstractEntity {
 
+    private  int id;
     private  String lastName;
     private  String approvalNumber ;
 
@@ -40,6 +41,17 @@ public class Doctor extends AbstractEntity {
     // ---------- getters and setters ------------
     // -------------------------------------------
 
+    /**
+     * Returns doctor id.
+     *
+     * @return id
+     */
+    public int getId() {
+        return this.id;
+    }
+    public void setId(int id) {
+        this.id = id;
+    }
     /**
      * Returns doctor last name.
      *

@@ -13,6 +13,7 @@ import java.time.LocalDate;
  */
 public class Patient extends AbstractEntity {
 
+    private int id;
     /** Social Security Number (13 or 15 digits) */
     private String socialSecurityNumber;
     private String lastName;
@@ -60,6 +61,9 @@ public class Patient extends AbstractEntity {
     // --------- getter and setter ----------
     // ======================================
 
+    public int getId() {
+        return this.id;
+    }
 
     public String getSocialSecurityNumber() {
         return socialSecurityNumber;

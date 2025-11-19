@@ -14,6 +14,7 @@ import java.util.List;
  */
 public class Purchase {
 
+    private int id;
     private final boolean isWithPrescription;
     private Prescription prescription;
     private LocalDate purchaseDate;
@@ -53,6 +54,10 @@ public class Purchase {
     // =======================================
     // --------- getters and setters --------
     // =======================================
+
+    public int getId() {
+        return this.id;
+    }
 
     public boolean getIsWithPrescription() {
         return this.isWithPrescription;

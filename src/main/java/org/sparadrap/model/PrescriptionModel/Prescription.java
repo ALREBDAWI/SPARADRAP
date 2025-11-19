@@ -15,6 +15,8 @@ import java.util.List;
  */
 public class Prescription {
 
+    private int id;
+
     /** Date when the prescription was issued (cannot be in the future) */
     private LocalDate prescriptionDate;
 
@@ -46,6 +48,11 @@ public class Prescription {
     }
 
     // --------- Getters and Setters --------
+
+
+    public int getId() {
+        return this.id;
+    }
 
     public LocalDate getPrescriptionDate() {
         return this.prescriptionDate;
