@@ -28,6 +28,7 @@ create table categories_med(
 create table insurances(
                            insurance_id int auto_increment primary key,
                            insurance_name varchar(100) not null,
+                           city varchar(50),
                            telephone varchar(15),
                            email varchar(100),
                            post_code varchar(10),
