@@ -28,6 +28,9 @@ public class Patient extends AbstractEntity {
     /** Coverage percentage (0–100) */
     private int percentage;
 
+    private int insuranceId;
+    private int doctorId;
+
     // ---------- constructor -----------
 
     /**
@@ -55,6 +58,28 @@ public class Patient extends AbstractEntity {
         setTreatingDoctor(treatingDoctor);
         setInsurance(insurance);
         setPercentage(percentage);
+    }
+
+    //--------------- DAO constructor -----------------
+    public Patient(
+            String firstName,
+            String lastName,
+            String socialSecurityNumber,
+            LocalDate birthDate,
+            String telephone,
+            String email,
+            String city,
+            String postalCode,
+            String address,
+            int doctorId,
+            int insuranceId
+    ) {
+        super(firstName, address, postalCode, city, email, telephone);
+        this.socialSecurityNumber = socialSecurityNumber;
+        this.lastName = lastName;
+        this.dateOfBirth = birthDate;
+        this.doctorId = doctorId;
+        this.insuranceId = insuranceId;
     }
 
     // ======================================
@@ -135,6 +160,19 @@ public class Patient extends AbstractEntity {
         } else {
             this.percentage = percentage;
         }
+    }
+
+    public void setDoctorId(int doctorId) {
+        this.doctorId = doctorId;
+    }
+    public int getDoctorId() {
+        return this.doctorId;
+    }
+    public void setInsuranceId(int insuranceId) {
+        this.insuranceId = insuranceId;
+    }
+    public int getInsuranceId() {
+        return this.insuranceId;
     }
 
     // ------------- print info ----------------

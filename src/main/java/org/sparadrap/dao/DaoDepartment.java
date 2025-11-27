@@ -8,7 +8,8 @@ import java.sql.*;
 public class DaoDepartment {
     public static void addDepartment(Department department) throws SQLException {
         String sql = "insert into departments (department_name, department_number) values(?,?)";
-        try(Connection conn = DBconnection.getConnection();
+        DBconnection dbcon = new DBconnection();
+        try(Connection conn = dbcon.getConnection();
             PreparedStatement pstmt = conn.prepareStatement(sql)){
 
             pstmt.setString(1,department.getName());
@@ -19,8 +20,9 @@ public class DaoDepartment {
 
     public static Department getDepartmentById(int id) throws SQLException {
         String sql = "select * from departments where department_id=?";
+        DBconnection dbcon = new DBconnection();
         Department department = null;
-        try(Connection conn = DBconnection.getConnection();
+        try(Connection conn = dbcon.getConnection();
         PreparedStatement pstmt = conn.prepareStatement(sql);
         ){
             pstmt.setInt(1,id);
@@ -36,4 +38,10 @@ public class DaoDepartment {
         }
         return department;
     }
+
+    public static void deleteDepartment(Department department) throws SQLException {
+
+    }
+
+
 }

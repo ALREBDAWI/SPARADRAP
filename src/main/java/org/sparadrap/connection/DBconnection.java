@@ -9,7 +9,7 @@ import java.sql.SQLException;
         private static String password = "root";
         private static Connection conn = null;
 
-        public static Connection getConnection() throws SQLException {
+        public  Connection getConnection() throws SQLException {
 
             try{
                 if(conn == null || conn.isClosed()){

@@ -37,6 +37,13 @@ public class Doctor extends AbstractEntity {
         setApprovalNumber(approvalNumber);
     }
 
+    //light constructor
+    public Doctor(String firstName, String lastName) {
+        super(firstName, "", "", "", "", "");
+        setLastName(lastName);
+    }
+
+
     // -------------------------------------------
     // ---------- getters and setters ------------
     // -------------------------------------------

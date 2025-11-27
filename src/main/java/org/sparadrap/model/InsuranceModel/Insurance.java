@@ -40,6 +40,7 @@ public class Insurance extends AbstractEntity {
         setDepartment(department);
     }
 
+
     // =========================================
     // ---------- Getters and Setters ----------
     // =========================================

@@ -1,10 +1,12 @@
 package org.sparadrap;
 
-import org.sparadrap.connection.DBconnection;
+import org.sparadrap.logConfig.LogConfig;
 import org.sparadrap.model.DummyData.DummyData;
 import org.sparadrap.view.MainPage;
 
+import java.io.File;
 import java.sql.SQLException;
+import java.util.logging.Logger;
 
 /**
  * Main class - entry point of the application.
@@ -21,10 +23,15 @@ public class Main {
      *
      * @param args command-line arguments (not used)
      */
+
+    private static final Logger LOGGER = Logger.getLogger(Main.class.getName());
     public static void main(String[] args) throws SQLException {
 
+        LogConfig.setup();
+        LOGGER.info("application is started");
         DummyData.dummyData();
         MainPage.menu();
+
 
     }
 }
