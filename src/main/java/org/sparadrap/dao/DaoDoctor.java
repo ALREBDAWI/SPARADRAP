@@ -8,10 +8,12 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.logging.Logger;
 
 import static java.sql.DriverManager.getConnection;
 
 public class DaoDoctor {
+    private static final Logger logger = Logger.getLogger(DaoDoctor.class.getName());
     public static Doctor getDoctorById(int id) throws SQLException {
         String sql = "select * from doctors where doctor_id=?";
 
@@ -35,7 +37,10 @@ public class DaoDoctor {
                     );
                 }
             }
+        }catch (SQLException ex){
+            logger.severe("problem getting doctor by id " + ex.getMessage());
         }
+        logger.fine("getting Doctor By Id successfully: " + doctor.getId());
         return doctor;
     }
 
@@ -64,6 +69,7 @@ public class DaoDoctor {
 
                 }
             }
+        logger.fine("getting All Doctors successfully: " + doctors.size());
         return doctors;
     }
 }

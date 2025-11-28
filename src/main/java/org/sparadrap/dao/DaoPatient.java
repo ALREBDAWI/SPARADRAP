@@ -2,18 +2,22 @@ package org.sparadrap.dao;
 
 import org.sparadrap.connection.DBconnection;
 import org.sparadrap.gui.PatientDisplay;
+import org.sparadrap.logConfig.LogConfig;
 import org.sparadrap.model.DoctorModel.Doctor;
 import org.sparadrap.model.DummyData.DummyData;
 import org.sparadrap.model.InsuranceModel.Insurance;
 import org.sparadrap.model.InsuranceModel.InsurancePlan;
 import org.sparadrap.model.PatientModel.Patient;
 
+import java.io.IOException;
 import java.sql.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 public class DaoPatient {
+    private static final Logger logger = Logger.getLogger(DaoPatient.class.getName());
     public static void addPatient(Patient patient) throws SQLException {
         String sql = "insert into patients (first_name, last_name, social_sec_number, birth_date, telephone, email, city, post_code, address, insurance_id, doctor_id) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ";
         DBconnection dbcon = new DBconnection();
@@ -154,7 +158,7 @@ public class DaoPatient {
                 insurance,
                 plans.isEmpty() ? 0 : plans.getFirst().getCoverage()
         );
-
+        logger.fine("patient created successfully");
         return patient;
     }
 
@@ -168,28 +172,12 @@ public class DaoPatient {
             int rowsDeleted = pstmt.executeUpdate();
                 if(rowsDeleted > 0){
                     System.out.println("deleted patient");
+                    logger.fine("patient deleted successfully");
                 }else {
                 System.out.println("delete failed");
+                logger.fine("patient delete failed");
             }
         }
     }
-
-    public static void main(String[] args) throws SQLException {
-        //ArrayList<Doctor> doctors = new ArrayList<Doctor>();
-        //doctors = DaoDoctor.getAllDoctors();
-        //System.out.println(doctors);
-        //System.out.println(DaoInsurance.getInsuranceById(2));
-        //System.out.println(DaoDoctor.getAllDoctors());
-        //System.out.println(DaoPatient.getAllPatients());
-        //System.out.println(DaoPatient.getPatientById(1));
-        //PatientDisplay.allPatientsDisplay();
-        //DoctorDisplay.allDoctorsDisplay();
-        DaoPatient.deletePatient(4);
-
-        Patient patient = new Patient("Isabella", "Name", "1100258796297", LocalDate.of(1996, 1, 22), "0564298347", "isabella@example.com",
-                "no mans land", "25000", "70 rue rex", 1, 1 );
-        //DaoPatient.addPatient(patient);
-    }
-
 
 }

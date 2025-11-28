@@ -4,6 +4,7 @@ import org.sparadrap.connection.DBconnection;
 import org.sparadrap.model.department.Department;
 
 import java.sql.*;
+import java.util.logging.Logger;
 
 public class DaoDepartment {
     public static void addDepartment(Department department) throws SQLException {

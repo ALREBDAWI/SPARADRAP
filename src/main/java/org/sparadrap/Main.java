@@ -1,11 +1,16 @@
 package org.sparadrap;
 
+import org.sparadrap.dao.DaoDoctor;
+import org.sparadrap.gui.DoctorDisplay;
+import org.sparadrap.gui.PatientDisplay;
 import org.sparadrap.logConfig.LogConfig;
 import org.sparadrap.model.DummyData.DummyData;
+import org.sparadrap.model.PatientModel.Patient;
 import org.sparadrap.view.MainPage;
 
-import java.io.File;
+import java.io.IOException;
 import java.sql.SQLException;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
@@ -24,13 +29,26 @@ public class Main {
      * @param args command-line arguments (not used)
      */
 
-    private static final Logger LOGGER = Logger.getLogger(Main.class.getName());
-    public static void main(String[] args) throws SQLException {
+        private static final Logger logger = Logger.getLogger(Main.class.getName());
 
-        LogConfig.setup();
-        LOGGER.info("application is started");
-        DummyData.dummyData();
-        MainPage.menu();
+    public static void main(String[] args) throws SQLException, IOException {
+            LogConfig.setup();
+
+                //============= swing ===============//
+                //PatientDisplay.allPatientsDisplay();
+                //DoctorDisplay.allDoctorsDisplay();
+
+                logger.log(Level.INFO, "Starting SPARADRAP");
+
+                logger.info("loading dummy data");
+                DummyData.dummyData();
+                logger.log(Level.INFO, "dummy data loaded successfully");
+
+                logger.log(Level.INFO, "Loading main page");
+                MainPage.menu();
+                logger.log(Level.INFO, "main page loaded successfully");
+
+                logger.info("application started");
 
 
     }
